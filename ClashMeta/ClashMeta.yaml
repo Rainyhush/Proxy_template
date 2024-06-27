@@ -1,4 +1,4 @@
-# 策略组相关
+# 策略组
 pr: &pr {type: select, proxies: [ Proxy, Hong Kong, Japan, TaiWan, Singapore, Korea, America, Germany, China, Other]}
 #订阅更新
 p: &p {type: http, interval: 43200, proxy: Proxy, health-check: {enable: true, url: https://www.gstatic.com/generate_204, interval: 3600}}
