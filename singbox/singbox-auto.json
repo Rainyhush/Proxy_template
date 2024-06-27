@@ -114,12 +114,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -132,12 +139,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -150,12 +164,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -168,12 +189,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -186,12 +214,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -204,12 +239,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -222,12 +264,19 @@
       "type": "selector",
       "outbounds": [
         "Hong Kong",
+        "Hong Kong - Auto",
         "Japan",
+        "Japan - Auto",
         "Singapore",
+        "Singapore - Auto",
         "TaiWan",
+        "TaiWan - Auto",
         "Korea",
+        "Korea - Auto",
         "America",
+        "America - Auto",
         "Germany",
+        "Germany - Auto",
         "China",
         "Other",
         "block"
@@ -248,9 +297,29 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "Hong Kong - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "Japan",
       "type": "selector",
       "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Japan - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
@@ -260,9 +329,29 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "TaiWan - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "Singapore",
       "type": "selector",
       "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Singapore - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
@@ -272,15 +361,45 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "Korea - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "America",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
+      "tag": "America - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "Germany",
       "type": "selector",
       "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Germany - Auto",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50,
+      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
