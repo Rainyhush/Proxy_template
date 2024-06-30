@@ -13,13 +13,25 @@
     },
     "servers": [
       {
-        "tag": "remote",
-        "address": "https://1.1.1.1/dns-query",
+        "tag": "cloudflare",
+        "address": "h3://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
       {
-        "tag": "local",
-        "address": "https://223.5.5.5/dns-query",
+        "tag": "tx",
+        "address": "h3://223.5.5.5/dns-query",
+        "detour": "CN"
+      },
+      {
+        "tag": "cloudflareh3",
+        "address": "h3://cloudflare-dns.com/dns-query",
+        "address_resolver": "cloudflare",
+        "detour": "Proxy"
+      },
+      {
+        "tag": "txh3",
+        "address": "h3://dns.alidns.com/dns-query",
+        "address_resolver": "tx",
         "detour": "CN"
       },
       {
@@ -38,11 +50,11 @@
       },
       {
         "outbound": "any",
-        "server": "local"
+        "server": "txh3"
       },
       {
         "ip_is_private": true,
-        "server": "local"
+        "server": "txh3"
       },
       {
         "rule_set": [
@@ -50,16 +62,16 @@
           "geosite-cn",
           "geosite-private"
         ],
-        "server": "local"
+        "server": "txh3"
       },
       
       {
         "clash_mode": "direct",
-        "server": "local"
+        "server": "txh3"
       },
       {
         "clash_mode": "Global",
-        "server": "remote"
+        "server": "cloudflareh3"
       },
       {
         "inbound": "tun",
@@ -72,10 +84,10 @@
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "remote"
+        "server": "cloudflareh3"
       }
     ],
-    "final": "remote",
+    "final": "cloudflareh3",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
