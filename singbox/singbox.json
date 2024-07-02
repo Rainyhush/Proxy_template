@@ -7,7 +7,7 @@
   },
   "dns": {
     "fakeip": {
-      "enabled": true,
+      "enabled": false,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
@@ -18,25 +18,9 @@
         "detour": "Proxy"
       },
       {
-        "tag": "tx",
+        "tag": "ali",
         "address": "h3://223.5.5.5/dns-query",
         "detour": "CN"
-      },
-      {
-        "tag": "cloudflareh3",
-        "address": "h3://cloudflare-dns.com/dns-query",
-        "address_resolver": "cloudflare",
-        "detour": "Proxy"
-      },
-      {
-        "tag": "txh3",
-        "address": "h3://dns.alidns.com/dns-query",
-        "address_resolver": "tx",
-        "detour": "CN"
-      },
-      {
-        "tag": "fakeip",
-        "address": "fakeip"
       },
       {
         "tag": "block",
@@ -50,11 +34,11 @@
       },
       {
         "outbound": "any",
-        "server": "txh3"
+        "server": "ali"
       },
       {
         "ip_is_private": true,
-        "server": "txh3"
+        "server": "ali"
       },
       {
         "rule_set": [
@@ -62,16 +46,16 @@
           "geosite-cn",
           "geosite-private"
         ],
-        "server": "txh3"
+        "server": "ali"
       },
-      
+
       {
         "clash_mode": "direct",
-        "server": "txh3"
+        "server": "ali"
       },
       {
         "clash_mode": "Global",
-        "server": "cloudflareh3"
+        "server": "cloudflare"
       },
       {
         "inbound": "tun",
@@ -79,16 +63,16 @@
           "A",
           "AAAA"
         ],
-        "server": "fakeip",
+        "server": "cloudflare",
         "rewrite_ttl": 1
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "server": "cloudflareh3"
+        "server": "cloudflare"
       }
     ],
-    "final": "cloudflareh3",
-    "strategy": "prefer_ipv4",
+    "final": "cloudflare",
+    "strategy": "ipv4_only",
     "independent_cache": true
   },
   "inbounds": [
@@ -301,15 +285,6 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "ads",
-      "type": "selector",
-      "outbounds": [
-        "block",
-        "Proxy"
-      ],
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "AUTO",
       "type": "urltest",
       "outbounds": [],
@@ -329,17 +304,45 @@
     }
   ],
   "route": {
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "Proxy",
     "rules": [
       {
-        "protocol": "dns",
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "port": 53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
         "outbound": "dns-out"
       },
       {
-        "port": 53,
+        "inbound": "dns-in",
         "outbound": "dns-out"
+      },
+      {
+        "network": "udp",
+        "port": 443,
+        "outbound": "block"
+      },
+      {
+        "port": 443,
+        "protocol": "quic",
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": [
+        "appcenter.ms",
+        "firebase.io",
+        "crashlytics.com"
+        ],
+        "outbound": "block"
+      },
+      {
+        "domain_suffix": "googleapis.cn",
+        "outbound": "Proxy"
       },
       {
         "clash_mode": "direct",
@@ -351,7 +354,7 @@
       },
       {
         "rule_set": "geosite-category-ads-all",
-        "outbound": "ads"
+        "outbound": "block"
       },
       {
         "rule_set": [
@@ -502,7 +505,10 @@
         "download_detour": "Proxy",
         "update_interval": "1d"
       }
-    ]
+    ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "final": "Proxy"
   },
   "experimental": {
     "clash_api": {
