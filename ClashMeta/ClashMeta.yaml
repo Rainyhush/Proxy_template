@@ -130,6 +130,9 @@ proxy-providers:
 proxies:
 - name: "dns-out"
   type: dns
+- name: "direct"
+  type: direct
+  udp: true
 proxy-groups:
   - {name: Proxy, <<: *pr}
   - {name: Google, <<: *pr}

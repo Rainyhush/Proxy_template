@@ -7,7 +7,7 @@
   },
   "dns": {
     "fakeip": {
-      "enabled": false,
+      "enabled": true,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
@@ -23,6 +23,10 @@
         "detour": "CN"
       },
       {
+        "tag": "fakeip",
+        "address": "fakeip"
+      },
+      {
         "tag": "block",
         "address": "rcode://success"
       }
@@ -34,27 +38,15 @@
       },
       {
         "outbound": "any",
-        "server": "ali"
+        "server": "ali",
+        "disable_cache": true
       },
-      {
-        "ip_is_private": true,
-        "server": "ali"
-      },
-      {
-        "rule_set": [
-          "geoip-cn",
-          "geosite-cn",
-          "geosite-private"
-        ],
-        "server": "ali"
-      },
-
       {
         "clash_mode": "direct",
         "server": "ali"
       },
       {
-        "clash_mode": "Global",
+        "clash_mode": "global",
         "server": "cloudflare"
       },
       {
@@ -63,12 +55,12 @@
           "A",
           "AAAA"
         ],
-        "server": "cloudflare",
+        "server": "fakeip",
         "rewrite_ttl": 1
       },
       {
-        "rule_set": "geosite-geolocation-!cn",
-        "server": "cloudflare"
+        "rule_set": "geosite-cn",
+        "server": "ali"
       }
     ],
     "final": "cloudflare",
@@ -79,6 +71,7 @@
     {
       "tag": "tun",
       "type": "tun",
+      "interface_name": "tun0",
       "address": [
       "172.19.0.0/30",
       "fdfe:dcba:9876::0/126"
@@ -231,6 +224,15 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "AdBlock",
+      "type": "selector",
+      "outbounds": [
+        "block",
+        "Proxy"
+        ],
+      "interrupt_exist_connections": true
+    },
+    {
       "tag": "CN",
       "type": "selector",
       "outbounds": [],
@@ -284,12 +286,13 @@
       "outbounds": [],
       "interrupt_exist_connections": true
     },
+
     {
       "tag": "AUTO",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
+      "interval": "10m",
       "tolerance": 100,
       "idle_timeout": "60m",
       "interrupt_exist_connections": true
@@ -301,60 +304,43 @@
     {
       "type": "block",
       "tag": "block"
+    },
+    {
+      "tag": "direct",
+      "type": "direct"
     }
   ],
   "route": {
     "rules": [
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 53
-          },
-          {
-            "protocol": "dns"
-          }
-        ],
+        "rule_set": "geosite-category-ads-all",
+        "outbound": "AdBlock"
+      },
+      {
+        "port": 53,
         "outbound": "dns-out"
       },
       {
-        "inbound": "dns-in",
-        "outbound": "dns-out"
+        "port": 443,
+        "network": "udp",
+        "outbound": "AdBlock"
       },
       {
         "network": "udp",
-        "port": 443,
-        "outbound": "block"
-      },
-      {
-        "port": 443,
         "protocol": "quic",
-        "outbound": "block"
+        "outbound": "AdBlock"
       },
       {
-        "domain_suffix": [
-        "appcenter.ms",
-        "firebase.io",
-        "crashlytics.com"
-        ],
-        "outbound": "block"
-      },
-      {
-        "domain_suffix": "googleapis.cn",
-        "outbound": "Proxy"
-      },
-      {
-        "clash_mode": "direct",
+        "ip_is_private": true,
         "outbound": "CN"
       },
       {
-        "clash_mode": "Global",
-        "outbound": "Proxy"
+        "clash_mode": "direct",
+        "outbound": "direct"
       },
       {
-        "rule_set": "geosite-category-ads-all",
-        "outbound": "block"
+        "clash_mode": "global",
+        "outbound": "Proxy"
       },
       {
         "rule_set": [
@@ -386,13 +372,8 @@
       {
         "rule_set": [
           "geoip-cn",
-          "geosite-cn",
-          "geosite-private"
+          "geosite-cn"
          ],
-        "outbound": "CN"
-      },
-      {
-        "ip_is_private": true,
         "outbound": "CN"
       },
       {
@@ -400,6 +381,9 @@
         "outbound": "Proxy"
       }
     ],
+    "auto_detect_interface": true,
+    "override_android_vpn": true,
+    "final": "Proxy",
     "rule_set": [
       {
         "tag": "geosite-category-ads-all",
@@ -490,14 +474,6 @@
         "update_interval": "1d"
       },
       {
-        "tag": "geosite-private",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/private.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
@@ -505,10 +481,7 @@
         "download_detour": "Proxy",
         "update_interval": "1d"
       }
-    ],
-    "auto_detect_interface": true,
-    "override_android_vpn": true,
-    "final": "Proxy"
+    ]
   },
   "experimental": {
     "clash_api": {
