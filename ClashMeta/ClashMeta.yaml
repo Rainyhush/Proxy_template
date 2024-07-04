@@ -7,7 +7,7 @@ allow-lan: false
 mixed-port: 7890
 unified-delay: true
 tcp-concurrent: true
-keep-alive-interval: 60
+keep-alive-interval: 30
 interface-name: Meta
 find-process-mode: strict
 global-client-fingerprint: chrome
@@ -155,16 +155,16 @@ proxy-groups:
 #路由规则
 rules:
   - RULE-SET,category-ads-all,REJECT
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),REJECT
+#  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),REJECT
   - DST-PORT,53,dns-out
   - DOMAIN-SUFFIX,googleapis.cn,Proxy
   - DOMAIN-SUFFIX,crashlytics.com,REJECT
   - DOMAIN-SUFFIX,firebase.io,REJECT
   - DOMAIN-SUFFIX,appcenter.ms,REJECT
-  - RULE-SET,google,Google
-  - RULE-SET,google_ip,Google
   - RULE-SET,github,GitHub
   - RULE-SET,youtube,YouTube
+  - RULE-SET,google,Google
+  - RULE-SET,google_ip,Google
   - RULE-SET,spotify,Spotify
   - RULE-SET,telegram,Telegram
   - RULE-SET,telegram_ip,Telegram
