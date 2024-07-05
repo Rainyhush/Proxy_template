@@ -164,13 +164,15 @@ proxy-groups:
   - {name: AUTO, <<: *u, include-all-providers: true,}
 #路由规则
 rules:
-  - RULE-SET,category-ads-all,REJECT
-#  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),REJECT
+  - RULE-SET,category-ads-all,REJECT-DROP
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),REJECT-DROP
+#  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - DST-PORT,53,dns-out
+  - RULE-SET,tieba,CN
   - DOMAIN-SUFFIX,googleapis.cn,Proxy
-  - DOMAIN-SUFFIX,crashlytics.com,REJECT
-  - DOMAIN-SUFFIX,firebase.io,REJECT
-  - DOMAIN-SUFFIX,appcenter.ms,REJECT
+  - DOMAIN-SUFFIX,crashlytics.com,REJECT-DROP
+  - DOMAIN-SUFFIX,firebase.io,REJECT-DROP
+  - DOMAIN-SUFFIX,appcenter.ms,REJECT-DROP
   - RULE-SET,github,GitHub
   - RULE-SET,youtube,YouTube
   - RULE-SET,google,Google
@@ -197,12 +199,21 @@ rule-anchor:
     proxy: Proxy
     behavior: domain
     format: yaml
+  classical: &classical
+    type: http
+    interval: 86400
+    proxy: Proxy
+    behavior: classical
+    format: yaml
 #规则集
 rule-providers:
 # 域名
   category-ads-all:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
+  tieba:
+    <<: *classical
+    url: "https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BaiDuTieBa/BaiDuTieBa_No_Resolve.yaml"
   cn:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
