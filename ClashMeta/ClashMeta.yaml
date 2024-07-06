@@ -1,6 +1,6 @@
 #全局配置
 mode: rule
-ipv6: false
+ipv6: true
 global-ua: clash.meta
 log-level: info
 allow-lan: false
@@ -51,7 +51,7 @@ dns:
   enable: true
   prefer-h3: true
   listen: 0.0.0.0:1053
-  ipv6: false
+  ipv6: true
   use-hosts: true
   use-system-hosts: true
   enhanced-mode: fake-ip
@@ -62,7 +62,7 @@ dns:
   nameserver-policy:
     "rule-set:cn,private":
       - "https://dns.alidns.com/dns-query#h3=true"
-    "rule-set:geolocation-!cn,microsoft,telegram,spotify,youtube,github,google":
+    "rule-set:geolocation-!cn,microsoft,telegram,spotify,youtube,github,google,openai":
       - "https://cloudflare-dns.com/dns-query#h3=true"
   nameserver:
     - "https://cloudflare-dns.com/dns-query#h3=true"
@@ -137,6 +137,7 @@ proxy-groups:
   - {name: Proxy, <<: *pr}
   - {name: Google, <<: *pr}
   - {name: GitHub, <<: *pr}
+  - {name: OpenAI, <<: *pr}
   - {name: YouTube, <<: *pr}
   - {name: Spotify, <<: *pr}
   - {name: Telegram, <<: *pr}
@@ -149,20 +150,15 @@ proxy-groups:
   - {name: KR, type: select, include-all-providers: true, filter: "(?i)韩国|KR|Korea"}
   - {name: US, type: select, include-all-providers: true, filter: "(?i)美国|US|America"}
   - {name: GE, type: select, include-all-providers: true, filter: "(?i)德国|DE|Germany"}
-  - {name: CN, type: select, include-all-providers: true, filter: "(?i)浙江|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
-  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
-  - {name: AUTO, <<: *u, include-all-providers: true,}
+  - {name: CN, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
+  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
 #路由规则
 rules:
   - RULE-SET,category-ads-all,REJECT-DROP
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),REJECT-DROP
   - DST-PORT,53,dns-out
-  - RULE-SET,tieba,CN
-  - DOMAIN-SUFFIX,googleapis.cn,Proxy
-  - DOMAIN-SUFFIX,crashlytics.com,REJECT-DROP
-  - DOMAIN-SUFFIX,firebase.io,REJECT-DROP
-  - DOMAIN-SUFFIX,appcenter.ms,REJECT-DROP
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)  - DST-PORT,53,dns-out
   - RULE-SET,github,GitHub
+  - RULE-SET,openai,OpenAI
   - RULE-SET,youtube,YouTube
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google
@@ -200,9 +196,6 @@ rule-providers:
   category-ads-all:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
-  tieba:
-    <<: *classical
-    url: "https://github.com/blackmatrix7/ios_rule_script/raw/master/rule/Clash/BaiDuTieBa/BaiDuTieBa_No_Resolve.yaml"
   cn:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.yaml"
@@ -215,6 +208,9 @@ rule-providers:
   github:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml"
+  openai:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml"
   spotify:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.yaml"
