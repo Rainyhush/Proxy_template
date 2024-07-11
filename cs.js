@@ -20,7 +20,7 @@ let proxies2 = await produceArtifact({
 })
 
 
-config.outbounds.push(...proxies)
+config.outbounds.push(...proxies2)
 
 config.outbounds.map(i => {
   if (['Other'].includes(i.tag)) {
@@ -31,10 +31,17 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /香港|hk|HK|Hong Kong/i.test(p.tag))
       .map(p => p.tag))
   }
+  
+  
+  
   if (['HK - Auto'].includes(i.tag)) {
-    i.outbounds.push(...proxies2.filter(p => /香港|hk|HK|Hong Kong/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => /香港|hk|HK|Hong Kong/i.test(p.tag))
       .map(p => p.tag))
   }
+  
+  
+  
+  
   if (['CN'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /浙江|徐州|广州|鞍山|襄阳|武汉|杭州|济南/i.test(p.tag))
       .map(p => p.tag))
@@ -44,30 +51,26 @@ config.outbounds.map(i => {
       .map(p => p.tag))
   }
   if (['TW - Auto'].includes(i.tag)) {
-  i.outbounds.push(...proxies2.filter(p => /台湾|tw|TW|TaiWan/i.test(p.tag))
-    .map(p => p.tag))
+    i.outbounds.push(...proxies.filter(p => /台湾|tw|TW|TaiWan/i.test(p.tag))
+      .map(p => p.tag))
   }
   if (['JP'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /日本|jp|JP|Japan/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['JP - Auto'].includes(i.tag)) {
-  i.outbounds.push(...proxies2.filter(p => /日本|jp|JP|Japan/i.test(p.tag))
-    .map(p => p.tag))
+    i.outbounds.push(...proxies.filter(p => /日本|jp|JP|Japan/i.test(p.tag))
+      .map(p => p.tag))
   }
   if (['SG'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /新加坡|狮城|sg|SG|Singapore/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['SG - Auto'].includes(i.tag)) {
-    i.outbounds.push(...proxies2.filter(p => /新加坡|狮城|sg|SG|Singapore/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => /新加坡|狮城|sg|SG|Singapore/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['KR'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /韩国|kr|KR|Korea/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['KR - Auto'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /韩国|kr|KR|Korea/i.test(p.tag))
       .map(p => p.tag))
   }
@@ -75,15 +78,7 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /美国|us|US|America/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['US - Auto'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /美国|us|US|America/i.test(p.tag))
-      .map(p => p.tag))
-  }
   if (['GE'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /德国|de|DE|Germany/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['GE - Auto'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /德国|de|DE|Germany/i.test(p.tag))
       .map(p => p.tag))
   }
