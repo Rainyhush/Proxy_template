@@ -3,7 +3,6 @@ const compatible_outbound = {
   tag: 'COMPATIBLE',
   type: 'direct',
 }
-
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
