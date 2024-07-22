@@ -434,36 +434,6 @@
         "outbound": "dns-out"
       },
       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "port": 853
-          },
-          {
-            "network": "udp",
-            "port": 443
-          },
-          {
-            "protocol": "stun"
-          }
-        ],
-        "outbound": "AdBlock"
-      },
-      {
-        "type": "logical",
-        "mode": "and",
-        "rules": [
-          {
-            "port": 443
-          },
-          {
-            "protocol": "quic"
-          }
-        ],
-        "outbound": "AdBlock"
-      },
-      {
         "ip_is_private": true,
         "outbound": "CN"
       },
