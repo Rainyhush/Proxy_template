@@ -103,19 +103,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -127,19 +120,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -151,19 +137,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -175,19 +154,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -199,19 +171,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -223,19 +188,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -247,19 +205,12 @@
       "type": "selector",
       "outbounds": [
         "HK",
-        "HK - Auto",
         "JP",
-        "JP - Auto",
         "SG",
-        "SG - Auto",
         "TW",
-        "TW - Auto",
         "KR",
-        "KR - Auto",
         "US",
-        "US - Auto",
         "GE",
-        "GE - Auto",
         "CN",
         "Other"
       ],
@@ -288,29 +239,9 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "HK - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "JP",
       "type": "selector",
       "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "JP - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
@@ -320,29 +251,9 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "TW - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "SG",
       "type": "selector",
       "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "SG - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
@@ -352,45 +263,15 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "KR - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "US",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
-      "tag": "US - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "GE",
       "type": "selector",
       "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "GE - Auto",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "idle_timeout": "60m",
       "interrupt_exist_connections": true
     },
     {
@@ -405,7 +286,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
+      "interval": "30m",
       "tolerance": 100,
       "idle_timeout": "60m",
       "interrupt_exist_connections": true
