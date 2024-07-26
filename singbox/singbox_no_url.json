@@ -280,17 +280,6 @@
       "outbounds": [],
       "interrupt_exist_connections": true
     },
-
-    {
-      "tag": "AUTO",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 100,
-      "idle_timeout": "60m",
-      "interrupt_exist_connections": true
-    },
     {
       "type": "dns",
       "tag": "dns-out"
