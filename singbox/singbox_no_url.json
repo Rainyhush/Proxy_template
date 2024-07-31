@@ -12,7 +12,7 @@
     },
     "servers": [
       {
-        "tag": "cloudflare",
+        "tag": "cf",
         "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
@@ -46,7 +46,7 @@
       },
       {
         "clash_mode": "global",
-        "server": "cloudflare"
+        "server": "cf"
       },
       {
         "inbound": "tun",
@@ -62,7 +62,7 @@
         "server": "ali"
       }
     ],
-    "final": "cloudflare",
+    "final": "cf",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
@@ -71,10 +71,8 @@
       "tag": "tun",
       "type": "tun",
       "interface_name": "tun0",
-      "address": [
-      "172.19.0.0/30",
-      "fdfe:dcba:9876::0/126"
-      ],
+      "inet4_address": "172.19.0.0/30",
+      "inet6_address": "fdfe:dcba:9876::0/126",
       "mtu": 9000,
       "stack": "mixed",
       "auto_route": true,
@@ -132,75 +130,7 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "GitHub",
-      "type": "selector",
-      "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
-        "KR",
-        "US",
-        "GE",
-        "CN",
-        "Other"
-      ],
-      "default": "HK",
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "Microsoft",
-      "type": "selector",
-      "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
-        "KR",
-        "US",
-        "GE",
-        "CN",
-        "Other"
-      ],
-      "default": "HK",
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "Spotify",
-      "type": "selector",
-      "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
-        "KR",
-        "US",
-        "GE",
-        "CN",
-        "Other"
-      ],
-      "default": "SG",
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "OpenAI",
-      "type": "selector",
-      "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
-        "KR",
-        "US",
-        "GE",
-        "CN",
-        "Other"
-      ],
-      "default": "SG",
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "Telegram",
       "type": "selector",
       "outbounds": [
         "HK",
@@ -228,7 +158,9 @@
     {
       "tag": "CN",
       "type": "selector",
-      "outbounds": [],
+      "outbounds": [
+        "block"
+        ],
       "interrupt_exist_connections": true
     },
     {
@@ -315,37 +247,23 @@
         "outbound": "Proxy"
       },
       {
-        "rule_set": "geosite-github",
-        "outbound": "GitHub"
-      },
-      {
-        "rule_set": "geosite-microsoft",
-        "outbound": "Microsoft"
-      },
-      {
-        "rule_set": "geosite-spotify",
-        "outbound": "Spotify"
-      },
-      {
         "rule_set": "geosite-openai",
         "outbound": "OpenAI"
       },
       {
-        "rule_set": "geosite-telegram",
-        "outbound": "Telegram"
-      },
-      {
-        "rule_set": [
-          "geosite-google",
-          "geoip-google"
-         ],
+        "rule_set": "geosite-google",
         "outbound": "Google"
       },
       {
-        "rule_set": [
-          "geoip-cn",
-          "geosite-cn"
-         ],
+        "rule_set": "geoip-google",
+        "outbound": "Google"
+      },
+      {
+        "rule_set": "geoip-cn",
+        "outbound": "CN"
+      },
+      {
+        "rule_set": "geoip-cn",
         "outbound": "CN"
       },
       {
@@ -382,30 +300,6 @@
         "update_interval": "1d"
       },
       {
-        "tag": "geosite-github",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
-        "tag": "geosite-microsoft",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
-        "tag": "geosite-spotify",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
         "tag": "geosite-openai",
         "type": "remote",
         "format": "binary",
@@ -414,36 +308,18 @@
         "update_interval": "1d"
       },
       {
-        "tag": "geosite-telegram",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/telegram.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
-        "tag": "geoip-telegram",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/telegram.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
-      },
-      {
         "tag": "geoip-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/cn.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
+        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/cn.srs",
-        "download_detour": "Proxy",
-        "update_interval": "1d"
+        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
+        "download_detour": "direct"
       },
       {
         "tag": "geosite-geolocation-!cn",

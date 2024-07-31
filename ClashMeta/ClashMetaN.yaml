@@ -61,27 +61,27 @@ dns:
     - "+.local"
 # 默认DNS, 用于解析DNS服务器的域名。
   default-nameserver:
-    - "https://1.1.1.1/dns-query#Proxy"
-    - "https://8.8.8.8/dns-query#Proxy"
-    - "https://223.5.5.5/dns-query#CN"
+    - https://1.1.1.1/dns-query
+    
+    - https://223.5.5.5/dns-query
 # 指定域名查询的解析服务器，可使用geosite, 优先于nameserver/fallback查询
   nameserver-policy:
     # 国内域名使用的DNS
     "rule-set:cn,private":
-      - "https://dns.alidns.com/dns-query#CN"
-      - "https://doh.pub/dns-query#CN"
+      - https://dns.alidns.com/dns-query
+      - https://doh.pub/dns-query
     # 国外域名使用的DNS
     "rule-set:geolocation-!cn,microsoft,telegram,spotify,youtube,github,google,openai":
-      - "https://cloudflare-dns.com/dns-query#Proxy"
-      - "https://dns.google/dns-query#Proxy"
+      - https://cloudflare-dns.com/dns-query
+      - https://dns.google/dns-query
 # 默认的域名解析服务器，如不配置fallback/proxy-server-nameserver , 则所有域名都由nameserver解析
   nameserver:
-    - "https://cloudflare-dns.com/dns-query#Proxy"
-    - "https://dns.google/dns-query#Proxy"
-    - "https://dns.alidns.com/dns-query#CN"
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
+    - https://dns.alidns.com/dns-query
 # 代理节点域名解析服务器，仅用于解析代理节点的域名
   proxy-server-nameserver:
-    - "https://dns.alidns.com/dns-query#CN"
+    - https://dns.alidns.com/dns-query
 # TUN配置
 tun:
   name: tun-in
@@ -103,19 +103,12 @@ pr: &pr
   type: select
   proxies:
     - HK
-    - HK - Auto
     - JP
-    - JP - Auto
     - TW
-    - TW - Auto
     - SG
-    - SG - Auto
     - KR
-    - KR - Auto
     - US
-    - US - Auto
     - GE
-    - GE - Auto
     - CN
     - Other
 #订阅更新
@@ -134,19 +127,13 @@ u: &u
     enable: true
     lazy: false
     url: https://www.gstatic.com/generate_204
-    interval: 600
+    interval: 3600
     tolerance: 50
 # 订阅url
 proxy-providers:
   ZGJ:
     <<: *p
-    url: "https://rainyhush-rhk.hf.space/RAINIHUSHRHK/download/ZGJ?target=ClashMeta"
-  HYK:
-    <<: *p
-    url: "https://rainyhush-rhk.hf.space/RAINIHUSHRHK/download/HYK?target=ClashMeta"
-#  SLY:
-#    <<: *p
-#    url: "https://rainyhush-rhk.hf.space/RAINIHUSHRHK/download/SLY?target=ClashMeta"
+    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/collection/%E7%BB%84%E5%90%88%E8%AE%A2%E9%98%85?target=ClashMeta"
 proxies:
 proxy-groups:
   - {name: Proxy, <<: *pr}
@@ -159,27 +146,20 @@ proxy-groups:
   - {name: Microsoft, <<: *pr}
 #地区分组
   - {name: HK, type: select, include-all-providers: true, filter: "(?i)香港|HK|Hong Kong"}
-  - {name: HK - Auto, type: url-test, <<: *u, use: [ZGJ], filter: "(?i)香港|HK|Hong Kong"}
   - {name: JP, type: select, include-all-providers: true, filter: "(?i)日本|JP|Japan"}
-  - {name: JP - Auto, type: url-test, <<: *u, use: [ZGJ], filter: "(?i)日本|JP|Japan"}
   - {name: SG, type: select, include-all-providers: true, filter: "(?i)新加坡|SG|Singapore"}
-  - {name: SG - Auto, type: url-test, <<: *u, use: [ZGJ], filter: "(?i)新加坡|SG|Singapore"}
   - {name: TW, type: select, include-all-providers: true, filter: "(?i)台湾|TW|TaiWan"}
-  - {name: TW - Auto, type: url-test, <<: *u, use: [ZGJ], filter: "(?i)台湾|TW|TaiWan"}
   - {name: KR, type: select, include-all-providers: true, filter: "(?i)韩国|KR|Korea"}
-  - {name: KR - Auto, type: url-test, <<: *u, use: [ZGJ,HYK], filter: "(?i)韩国|KR|Korea"}
   - {name: US, type: select, include-all-providers: true, filter: "(?i)美国|US|America"}
-  - {name: US - Auto, type: url-test, <<: *u, use: [ZGJ,HYK], filter: "(?i)美国|US|America"}
   - {name: GE, type: select, include-all-providers: true, filter: "(?i)德国|DE|Germany"}
-  - {name: GE - Auto, type: url-test, <<: *u, use: [ZGJ,HYK], filter: "(?i)德国|DE|Germany"}
   - {name: CN, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
   - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
-
+  - {name: Auto, <<: *u, include-all-providers: true}
 #路由规则
 rules:
   - RULE-SET,category-ads-all,REJECT-DROP
   - GEOIP,LAN,CN
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)  - DST-PORT,53,dns-out
+#  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)  - DST-PORT,53,dns-out
   - RULE-SET,github,GitHub
   - RULE-SET,openai,OpenAI
   - RULE-SET,youtube,YouTube
