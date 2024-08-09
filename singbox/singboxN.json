@@ -55,7 +55,7 @@
           "AAAA"
         ],
         "server": "fakeip",
-        "rewrite_ttl": 1
+        "rewrite_ttl": 60
       },
       {
         "rule_set": "geosite-cn",
@@ -147,20 +147,9 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "AdBlock",
-      "type": "selector",
-      "outbounds": [
-        "block",
-        "Proxy"
-        ],
-      "interrupt_exist_connections": true
-    },
-    {
       "tag": "CN",
       "type": "selector",
-      "outbounds": [
-        "block"
-        ],
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
@@ -228,7 +217,7 @@
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
-        "outbound": "AdBlock"
+        "outbound": "block"
       },
       {
         "port": 53,
@@ -280,7 +269,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "Proxy",
+        "download_detour": "CN",
         "update_interval": "1d"
       },
       {
@@ -288,7 +277,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
-        "download_detour": "Proxy",
+        "download_detour": "CN",
         "update_interval": "1d"
       },
       {
@@ -296,7 +285,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
-        "download_detour": "Proxy",
+        "download_detour": "CN",
         "update_interval": "1d"
       },
       {
@@ -304,7 +293,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
-        "download_detour": "Proxy",
+        "download_detour": "CN",
         "update_interval": "1d"
       },
       {
@@ -312,21 +301,21 @@
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
-        "download_detour": "direct"
+        "download_detour": "CN"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
-        "download_detour": "direct"
+        "download_detour": "CN"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "Proxy",
+        "download_detour": "CN",
         "update_interval": "1d"
       }
     ]
