@@ -127,7 +127,7 @@ u: &u
     enable: true
     lazy: false
     url: https://www.gstatic.com/generate_204
-    interval: 3600
+    interval: 36000
     tolerance: 50
 # 订阅url
 proxy-providers:
