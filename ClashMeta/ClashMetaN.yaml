@@ -51,7 +51,7 @@ ntp:
 dns:
   enable: true
   prefer-h3: true
-  listen: 1053
+  listen: 0.0.0.0:1053
   ipv6: true
   enhanced-mode: fake-ip
   fake-ip-range: 28.0.0.1/8
