@@ -107,8 +107,6 @@ pr: &pr
     - TW
     - SG
     - KR
-    - US
-    - GE
     - CN
     - Other
 #订阅更新
@@ -133,7 +131,7 @@ u: &u
 proxy-providers:
   ZGJ:
     <<: *p
-    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/collection/%E7%BB%84%E5%90%88%E8%AE%A2%E9%98%85?target=ClashMeta"
+    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/ZGJ?target=ClashMeta"
 proxies:
 proxy-groups:
   - {name: Proxy, <<: *pr}
@@ -150,8 +148,6 @@ proxy-groups:
   - {name: SG, type: select, include-all-providers: true, filter: "(?i)新加坡|SG|Singapore"}
   - {name: TW, type: select, include-all-providers: true, filter: "(?i)台湾|TW|TaiWan"}
   - {name: KR, type: select, include-all-providers: true, filter: "(?i)韩国|KR|Korea"}
-  - {name: US, type: select, include-all-providers: true, filter: "(?i)美国|US|America"}
-  - {name: GE, type: select, include-all-providers: true, filter: "(?i)德国|DE|Germany"}
   - {name: CN, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
   - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
   - {name: Auto, <<: *u, include-all-providers: true}
