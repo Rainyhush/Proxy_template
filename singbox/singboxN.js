@@ -6,8 +6,8 @@ const compatible_outbound = {
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
-  name: '组合订阅', 
-  type: 'collection', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
+  name: 'ZGJ', 
+  type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
 })
@@ -17,7 +17,7 @@ config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
   if (['Other'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|hk|HK|Hong Kong|浙江|宁波|宿迁|广东|徐州|广州|武汉|襄阳|鞍山|杭州|济南|台湾|tw|TW|TaiWan|日本|jp|JP|Japan|新加坡|狮城|sg|SG|Singapore|德国|de|DE|Germany|韩国|kr|KR|Korea|美国|us|US|America/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => !/香港|hk|HK|Hong Kong|浙江|宁波|宿迁|广东|徐州|广州|武汉|襄阳|鞍山|杭州|济南|台湾|tw|TW|TaiWan|日本|jp|JP|Japan|新加坡|狮城|sg|SG|Singapore|韩国|kr|KR|Korea/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['HK'].includes(i.tag)) {
@@ -42,14 +42,6 @@ config.outbounds.map(i => {
   }
   if (['KR'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /韩国|kr|KR|Korea/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['US'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /美国|us|US|America/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['GE'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /德国|de|DE|Germany/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['AUTO'].includes(i.tag)) {

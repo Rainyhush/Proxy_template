@@ -104,8 +104,6 @@
         "SG",
         "TW",
         "KR",
-        "US",
-        "GE",
         "CN",
         "Other"
       ],
@@ -121,8 +119,6 @@
         "SG",
         "TW",
         "KR",
-        "US",
-        "GE",
         "CN",
         "Other"
       ],
@@ -138,8 +134,6 @@
         "SG",
         "TW",
         "KR",
-        "US",
-        "GE",
         "CN",
         "Other"
       ],
@@ -178,18 +172,6 @@
     },
     {
       "tag": "KR",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "US",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "GE",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
