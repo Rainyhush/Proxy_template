@@ -167,25 +167,19 @@
     {
       "tag": "SG",
       "type": "selector",
-      "outbounds": [
-        "block"
-        ],
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "tag": "KR",
       "type": "selector",
-      "outbounds": [
-        "block"
-        ],
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "tag": "Other",
       "type": "selector",
-      "outbounds": [
-        "block"
-        ],
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
