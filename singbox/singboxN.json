@@ -189,6 +189,12 @@
       "interrupt_exist_connections": true
     },
     {
+      "tag": "Aii node",
+      "type": "selector",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
       "type": "dns",
       "tag": "dns-out"
     },

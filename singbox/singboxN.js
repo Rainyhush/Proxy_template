@@ -44,8 +44,8 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /韩国|kr|KR|Korea/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['AUTO'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /美国|香港|日本|新加坡|台湾|韩国|德国|英国|阿根廷|泰国|伊拉克|俄罗斯|土耳其|芬兰|浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南/i.test(p.tag))
+  if (['Aii node'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => !/block/i.test(p.tag))
       .map(p => p.tag))
   }
 })
