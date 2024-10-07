@@ -99,10 +99,8 @@
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
+        "HK and TW",
+        "JP and SG",
         "KR",
         "CN",
         "Other"
@@ -114,10 +112,8 @@
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
+        "HK and TW",
+        "JP and SG",
         "KR",
         "CN",
         "Other"
@@ -129,10 +125,8 @@
       "tag": "OpenAI",
       "type": "selector",
       "outbounds": [
-        "HK",
-        "JP",
-        "SG",
-        "TW",
+        "HK and TW",
+        "JP and SG",
         "KR",
         "CN",
         "Other"
@@ -147,25 +141,13 @@
       "interrupt_exist_connections": true
     },
     {
-      "tag": "HK",
+      "tag": "HK and TW",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
-      "tag": "JP",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "TW",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "SG",
+      "tag": "JP and SG",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
