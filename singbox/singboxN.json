@@ -12,12 +12,12 @@
     },
     "servers": [
       {
-        "tag": "cf",
+        "tag": "Remote",
         "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
       {
-        "tag": "ali",
+        "tag": "local",
         "address": "https://223.5.5.5/dns-query",
         "detour": "CN"
       },
@@ -37,16 +37,16 @@
       },
       {
         "outbound": "any",
-        "server": "ali",
+        "server": "local",
         "disable_cache": true
       },
       {
         "clash_mode": "direct",
-        "server": "ali"
+        "server": "local"
       },
       {
         "clash_mode": "global",
-        "server": "cf"
+        "server": "Remote"
       },
       {
         "inbound": "tun",
@@ -59,10 +59,10 @@
       },
       {
         "rule_set": "geosite-cn",
-        "server": "ali"
+        "server": "local"
       }
     ],
-    "final": "cf",
+    "final": "Remote",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
