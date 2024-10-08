@@ -199,7 +199,16 @@
         "outbound": "block"
       },
       {
-        "port": 53,
+        "type": "logical",
+        "mode": "or",
+        "rules":[
+          {
+            "port":53
+          },
+          {
+            "protocol": "dns"
+          }
+        ],
         "outbound": "dns-out"
       },
       {
