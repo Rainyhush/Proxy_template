@@ -99,61 +99,70 @@
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
-        "HK and TW",
-        "JP and SG",
-        "KR",
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "TaiWan",
         "CN",
         "Other"
       ],
-      "default": "HK and TW",
+      "default": "HongKong",
       "interrupt_exist_connections": true
     },
     {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "HK and TW",
-        "JP and SG",
-        "KR",
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "TaiWan",
         "CN",
         "Other"
       ],
-      "default": "HK and TW",
+      "default": "Japan",
       "interrupt_exist_connections": true
     },
     {
       "tag": "OpenAI",
       "type": "selector",
       "outbounds": [
-        "HK and TW",
-        "JP and SG",
-        "KR",
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "TaiWan",
         "CN",
         "Other"
       ],
-      "default": "JP and SG",
+      "default": "Singapore",
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "HongKong",
+      "type": "selector",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Japan",
+      "type": "selector",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "Singapore",
+      "type": "selector",
+      "outbounds": [],
+      "interrupt_exist_connections": true
+    },
+    {
+      "tag": "TaiWan",
+      "type": "selector",
+      "outbounds": [],
       "interrupt_exist_connections": true
     },
     {
       "tag": "CN",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "HK and TW",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "JP and SG",
-      "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
-    },
-    {
-      "tag": "KR",
       "type": "selector",
       "outbounds": [],
       "interrupt_exist_connections": true
