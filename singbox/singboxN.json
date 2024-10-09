@@ -97,8 +97,7 @@
         "CN",
         "Other"
       ],
-      "default": "HongKong",
-      "interrupt_exist_connections": true
+      "default": "HongKong"
     },
     {
       "tag": "Google",
@@ -111,8 +110,7 @@
         "CN",
         "Other"
       ],
-      "default": "Japan",
-      "interrupt_exist_connections": true
+      "default": "Japan"
     },
     {
       "tag": "OpenAI",
@@ -125,50 +123,45 @@
         "CN",
         "Other"
       ],
-      "default": "Singapore",
-      "interrupt_exist_connections": true
+      "default": "Singapore"
     },
     {
       "tag": "HongKong",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "Japan",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "Singapore",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "TaiWan",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "CN",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "Other",
       "type": "selector",
-      "outbounds": [],
-      "interrupt_exist_connections": true
+      "outbounds": []
     },
     {
       "tag": "Aii node",
       "type": "selector",
       "outbounds": [],
-      "interrupt_exist_connections": true
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "15m",
+      "tolerance": 50
     },
     {
       "type": "dns",
