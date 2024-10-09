@@ -26,10 +26,6 @@
         "detour": "CN"
       },
       {
-        "tag": "fakeip",
-        "address": "fakeip"
-      },
-      {
         "tag": "block",
         "address": "rcode://success"
       }
