@@ -37,8 +37,7 @@
       },
       {
         "outbound": "any",
-        "server": "local",
-        "disable_cache": true
+        "server": "local"
       },
       {
         "clash_mode": "direct",
@@ -49,20 +48,22 @@
         "server": "Remote"
       },
       {
-        "inbound": "tun",
         "query_type": [
           "A",
           "AAAA"
         ],
-        "server": "fakeip",
-        "rewrite_ttl": 1
+        "server": "fakeip"
       },
       {
         "rule_set": "geosite-cn",
         "server": "local"
+      },
+      {
+        "rule_set": "geosite-geolocation-!cn",
+        "server": "Remote"
       }
     ],
-    "final": "Remote",
+    "final": "local",
     "strategy": "prefer_ipv4",
     "independent_cache": true
   },
