@@ -160,7 +160,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
-      "interval": "15m",
+      "interval": "30m",
       "tolerance": 50
     },
     {
