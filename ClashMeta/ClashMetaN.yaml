@@ -147,7 +147,7 @@ proxy-groups:
   - {name: Singapore, type: select, include-all-providers: true, filter: "(?i)新加坡|SG|Singapore"}
   - {name: TaiWan, type: select, include-all-providers: true, filter: "(?i)台湾|TW|TaiWan"}
   - {name: China, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|镇江|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
-  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|镇江|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
+  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|镇江|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America)).*"}
   - {name: Auto, <<: *u, include-all-providers: true}
 #路由规则
 rules:
