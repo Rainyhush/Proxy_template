@@ -23,7 +23,7 @@ geox-url:
   geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
   mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
   asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
-  proxy: Proxy
+  proxy: China
 profile:
   store-selected: true
   store-fake-ip: true
@@ -102,12 +102,11 @@ tun:
 pr: &pr
   type: select
   proxies:
-    - HK
-    - JP
-    - TW
-    - SG
-    - KR
-    - CN
+    - HongKong
+    - Japan
+    - TaiWan
+    - Singapore
+    - China
     - Other
 #订阅更新
 p: &p
@@ -143,18 +142,17 @@ proxy-groups:
   - {name: Telegram, <<: *pr}
   - {name: Microsoft, <<: *pr}
 #地区分组
-  - {name: HK, type: select, include-all-providers: true, filter: "(?i)香港|HK|Hong Kong"}
-  - {name: JP, type: select, include-all-providers: true, filter: "(?i)日本|JP|Japan"}
-  - {name: SG, type: select, include-all-providers: true, filter: "(?i)新加坡|SG|Singapore"}
-  - {name: TW, type: select, include-all-providers: true, filter: "(?i)台湾|TW|TaiWan"}
-  - {name: KR, type: select, include-all-providers: true, filter: "(?i)韩国|KR|Korea"}
-  - {name: CN, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
-  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
+  - {name: HongKong, type: select, include-all-providers: true, filter: "(?i)香港|HK|Hong Kong"}
+  - {name: Japan, type: select, include-all-providers: true, filter: "(?i)日本|JP|Japan"}
+  - {name: Singapore, type: select, include-all-providers: true, filter: "(?i)新加坡|SG|Singapore"}
+  - {name: TaiWan, type: select, include-all-providers: true, filter: "(?i)台湾|TW|TaiWan"}
+  - {name: China, type: select, include-all-providers: true, filter: "(?i)浙江|宁波|镇江|宿迁|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南"}
+  - {name: Other, type: select, include-all-providers: true, filter: "(?i)^(?!.*(?:浙江|宁波|宿迁|镇江|广东|徐州|广州|鞍山|襄阳|武汉|杭州|济南|香港|HK|Hong Kong|台湾|TW|TaiWan|日本|JP|Japan|新加坡|SG|Singapore|德国|DE|Germany|美国|US|America|韩国|KR|Korea)).*"}
   - {name: Auto, <<: *u, include-all-providers: true}
 #路由规则
 rules:
   - RULE-SET,category-ads-all,REJECT-DROP
-  - GEOIP,LAN,CN
+  - GEOIP,LAN,China
 #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)  - DST-PORT,53,dns-out
   - RULE-SET,github,GitHub
   - RULE-SET,openai,OpenAI
@@ -166,9 +164,9 @@ rules:
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google
   - RULE-SET,geolocation-!cn,Proxy
-  - RULE-SET,cn,CN
-  - RULE-SET,cn_ip,CN
-  - RULE-SET,private,CN
+  - RULE-SET,cn,China
+  - RULE-SET,cn_ip,China
+  - RULE-SET,private,China
   - MATCH,Proxy
 rule-anchor:
   ip: &ip
