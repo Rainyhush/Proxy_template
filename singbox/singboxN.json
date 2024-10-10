@@ -13,8 +13,7 @@
     "servers": [
       {
         "tag": "Remote",
-        "address": "https://dns.google/dns-query",
-        "address_resolver": "local",
+        "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
       {
