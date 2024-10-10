@@ -6,7 +6,7 @@
   },
   "dns": {
     "fakeip": {
-      "enabled": false,
+      "enabled": true,
       "inet4_range": "198.18.0.0/15",
       "inet6_range": "fc00::/18"
     },
@@ -24,6 +24,10 @@
       {
         "tag": "block",
         "address": "rcode://success"
+      },
+      {
+        "tag": "fakeip",
+        "address": "fakeip"
       }
     ],
     "rules": [
@@ -43,6 +47,14 @@
       {
         "clash_mode": "global",
         "server": "Remote"
+      },
+      {
+        "query_type": [
+          "A",
+          "AAAA"
+        ],
+        "rule_set": "geosite-cn",
+        "server": "fakeip"
       },
       {
         "rule_set": "geosite-cn",
