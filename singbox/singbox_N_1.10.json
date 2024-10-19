@@ -27,7 +27,8 @@
     "servers": [
       {
         "tag": "google",
-        "address": "tls://8.8.8.8"
+        "address": "https://1.1.1.1/dns-query",
+        "detour": "Proxy"
       },
       {
         "tag": "local",
@@ -212,10 +213,6 @@
     {
       "type": "block",
       "tag": "block"
-    },
-    {
-      "tag": "direct",
-      "type": "direct"
     }
   ],
   "route": {
@@ -243,7 +240,7 @@
       },
       {
         "clash_mode": "direct",
-        "outbound": "direct"
+        "outbound": "China"
       },
       {
         "clash_mode": "global",
@@ -266,9 +263,9 @@
         "outbound": "Proxy"
       }
     ],
-    "auto_detect_interface": true,
     "override_android_vpn": true,
-    "final": "Proxy",
+    "auto_detect_interface": true,
+    "final": "China",
     "rule_set": [
       {
         "tag": "geosite-category-ads-all",
