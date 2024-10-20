@@ -1,7 +1,7 @@
 
 mode: rule
 allow-lan: true
-ipv6: false
+ipv6: true
 global-ua: clash.meta
 log-level: info
 mixed-port: 7890
@@ -11,8 +11,7 @@ keep-alive-interval: 30
 interface-name: Meta
 find-process-mode: strict
 global-client-fingerprint: chrome
-external-controller: 127.0.0.1:9090
-
+external-controller: 127.0.0.1:9000
 
 geodata-mode: false
 geodata-loader: standard
@@ -28,7 +27,6 @@ profile:
   store-selected: true
   store-fake-ip: true
 
-
 sniffer:
   enable: true
   sniff:
@@ -39,7 +37,6 @@ sniffer:
       ports: [443, 8443]
     QUIC:
       ports: [443, 8443]
-
 
 dns:
   enable: true
@@ -86,7 +83,7 @@ proxy-providers:
 proxies:
   - name: "dns-out"
     type: dns
-    udp: false
+    udp: true
 
 proxy-groups:
   - name: Proxy
@@ -159,11 +156,12 @@ proxy-groups:
   - name: 其它地区
     type: select
     include-all: true
-    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|徐|镇|武|济)).*"
+    filter: "(?i)^(?!.*(?:🇭🇰|🇯🇵|🇺🇸|🇸🇬|🇨🇳|港|hk|hongkong|台|tw|taiwan|日|jp|japan|新|sg|singapore|徐|镇|武|济|dns-out)).*"
 
   - name: 自动选择
     type: url-test
     include-all: true
+    exclude-filter: "dns-out" 
     interval: 1800
     tolerance: 50
 
@@ -171,6 +169,7 @@ proxy-groups:
 rules:
 #  - NETWORK,udp,China 
   - DST-PORT,53,dns-out
+  - RULE-SET,private,China
   - RULE-SET,category-ads-all,REJECT-DROP
 #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,github,GitHub
@@ -185,7 +184,6 @@ rules:
   - RULE-SET,geolocation-!cn,Proxy
   - RULE-SET,cn,China
   - RULE-SET,cn_ip,China
-  - RULE-SET,private,China
   - MATCH,Proxy
 rule-anchor:
   ip: &ip
