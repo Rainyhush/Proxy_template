@@ -19,7 +19,7 @@
       {
         "tag": "local",
         "address": "https://223.5.5.5/dns-query",
-        "detour": "China"
+        "detour": "国内"
       },
       {
         "tag": "block",
@@ -102,73 +102,149 @@
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "TaiWan",
-        "China",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "江苏",
+        "武汉",
+        "山东",
+        "其它"
       ],
-      "default": "HongKong"
+      "default": "香港"
     },
     {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "TaiWan",
-        "China",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "江苏",
+        "武汉",
+        "山东",
+        "其它"
       ],
-      "default": "Japan"
+      "default": "日本"
     },
     {
       "tag": "OpenAI",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "TaiWan",
-        "China",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "江苏",
+        "武汉",
+        "山东",
+        "其它"
       ],
-      "default": "Singapore"
-    },
-    {
-      "tag": "HongKong",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "Japan",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "Singapore",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "TaiWan",
-      "type": "selector",
-      "outbounds": []
+      "default": "新加坡"
     },
     {
       "tag": "China",
       "type": "selector",
-      "outbounds": []
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "江苏",
+        "武汉",
+        "山东",
+        "其它"
+      ],
+      "default": "江苏"
     },
     {
-      "tag": "Other",
+      "tag": "香港",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "Aii node",
+      "tag": "日本",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "新加坡",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "台湾",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "韩国",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "美国",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "加拿大",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "英国",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "阿根廷",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "江苏",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "武汉",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "山东",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "其它",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "全部节点",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -209,7 +285,7 @@
       },
       {
         "ip_is_private": true,
-        "outbound": "China"
+        "outbound": "国内"
       },
       {
         "clash_mode": "direct",
@@ -229,7 +305,7 @@
       },
       {
         "rule_set": ["geosite-cn","geoip-cn"],
-        "outbound": "China"
+        "outbound": "国内"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
@@ -245,7 +321,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -253,7 +329,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -261,7 +337,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -269,7 +345,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -277,7 +353,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -285,7 +361,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       },
       {
@@ -293,7 +369,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "China",
+        "download_detour": "国内",
         "update_interval": "1d"
       }
     ]
@@ -304,7 +380,7 @@
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "China",
+      "external_ui_download_detour": "国内",
       "default_mode": "rule"
     },
     "cache_file": {
