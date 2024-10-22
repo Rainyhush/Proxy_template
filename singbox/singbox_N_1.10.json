@@ -190,6 +190,26 @@
       "default": "新加坡"
     },
     {
+      "tag": "Spotify",
+      "type": "selector",
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "江苏",
+        "武汉",
+        "山东",
+        "其它"
+      ],
+      "default": "香港"
+    },
+    {
       "tag": "China",
       "type": "selector",
       "outbounds": [
@@ -331,6 +351,10 @@
         "outbound": "OpenAI"
       },
       {
+        "rule_set": "geosite-spotify",
+        "outbound": "Spotify"
+      },
+      {
         "rule_set": ["geosite-google", "geoip-google"],
         "outbound": "Google"
       },
@@ -360,6 +384,14 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
+        "download_detour": "China",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geosite-spotify",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
         "download_detour": "China",
         "update_interval": "1d"
       },
