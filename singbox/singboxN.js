@@ -15,7 +15,7 @@ config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
   if (['其它'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|狮城|韩国|美国|加拿大|英国|阿根廷/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|狮城|韩国|加拿大|英国|阿根廷/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['香港'].includes(i.tag)) {
@@ -36,10 +36,6 @@ config.outbounds.map(i => {
   }
   if (['韩国'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /韩国/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['美国'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /美国/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['加拿大'].includes(i.tag)) {
