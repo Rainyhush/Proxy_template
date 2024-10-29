@@ -6,7 +6,7 @@ global-ua: clash.meta
 log-level: info
 mixed-port: 7890
 unified-delay: true
-tcp-concurrent: false
+tcp-concurrent: true
 disable-keep-alive: false
 keep-alive-interval: 30
 interface-name: Meta
@@ -84,44 +84,43 @@ proxy-providers:
 proxies:
   - name: "dns-out"
     type: dns
-    udp: true
-
+   
 proxy-groups:
   - name: Proxy
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: Google
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: OpenAI
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: YouTube
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: Telegram
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: Microsoft
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: Spotify
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: GitHub
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   - name: China
     type: select
-    proxies:  [香港,台湾,日本,新加坡,国内,其它地区,自动选择]
+    proxies:  [香港,台湾,日本,新加坡,江苏,武汉,山东,其它节点,全部节点,REJECT-DROP]
 
   #分隔,下面是地区分组
   - name: 香港
@@ -139,27 +138,38 @@ proxy-groups:
     include-all: true
     filter: "(?i)日|jp|japan"
 
-#  - name: 美国
-#    type: select
-#    include-all: true
-#    filter: "(?i)美|us|unitedstates|united states"
+  - name: 韩国
+    type: select
+    include-all: true
+    filter: "(?i)(韩)"
 
   - name: 新加坡
     type: select
     include-all: true
     filter: "(?i)(新|sg|singapore)"
 
-  - name: 国内
+  - name: 江苏
     type: select
     include-all: true
-    filter: "(?i)(徐|镇|武|济)"
+    filter: "(?i)(徐|镇)"
 
-  - name: 其它地区
+  - name: 武汉
     type: select
     include-all: true
-    filter: "(?i)^(?!.*(?:港|台|日|新|徐|镇|武|济|dns-out)).*"
+    filter: "(?i)(武)"
 
-  - name: 自动选择
+  - name: 山东
+    type: select
+    include-all: true
+    filter: "(?i)(济)"
+
+  - name: 其它节点
+    type: select
+    include-all: true
+    filter: "(?i)^(?!.*(?:港|台|日|韩|新|徐|镇|武|济|dns-out)).*"
+
+
+  - name: 全部节点
     type: url-test
     include-all: true
     exclude-filter: "dns-out" 

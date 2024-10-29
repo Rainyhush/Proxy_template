@@ -323,11 +323,11 @@
 
       {
         "ip_is_private": true,
-        "outbound": "China"
+        "outbound": "direct"
       },
       {
         "clash_mode": "direct",
-        "outbound": "China"
+        "outbound": "direct"
       },
       {
         "clash_mode": "global",

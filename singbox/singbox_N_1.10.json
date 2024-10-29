@@ -107,7 +107,7 @@
         "172.19.0.0/30",
         "fdfe:dcba:9876::0/126"
       ],
-      "stack": "system",
+      "stack": "mixed",
       "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
@@ -138,7 +138,6 @@
         "新加坡",
         "台湾",
         "韩国",
-        "美国",
         "加拿大",
         "英国",
         "阿根廷",
@@ -158,7 +157,6 @@
         "新加坡",
         "台湾",
         "韩国",
-        "美国",
         "加拿大",
         "英国",
         "阿根廷",
@@ -178,7 +176,6 @@
         "新加坡",
         "台湾",
         "韩国",
-        "美国",
         "加拿大",
         "英国",
         "阿根廷",
@@ -198,7 +195,6 @@
         "新加坡",
         "台湾",
         "韩国",
-        "美国",
         "加拿大",
         "英国",
         "阿根廷",
@@ -218,7 +214,6 @@
         "新加坡",
         "台湾",
         "韩国",
-        "美国",
         "加拿大",
         "英国",
         "阿根廷",
@@ -251,28 +246,35 @@
     },
     {
       "tag": "韩国",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "美国",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50
     },
     {
       "tag": "加拿大",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50
     },
     {
       "tag": "英国",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50
     },
     {
       "tag": "阿根廷",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50
     },
     {
       "tag": "江苏",
@@ -288,11 +290,23 @@
       "tag": "山东",
       "type": "selector",
       "outbounds": []
+    }, 
+    {
+      "tag": "内置",
+      "type": "selector",
+      "outbounds": [
+        "dns-out",
+        "block",
+        "direct"
+        ]
     },
     {
       "tag": "其它",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "30m",
+      "tolerance": 50
     },
     {
       "tag": "全部节点",
@@ -311,8 +325,8 @@
       "tag": "block"
     },
     {
-      "tag": "direct",
-      "type": "direct"
+      "type": "direct",
+      "tag": "direct"
     }
   ],
   "route": {
@@ -367,7 +381,7 @@
         "outbound": "Proxy"
       }
     ],
-    "override_android_vpn": false,
+    "override_android_vpn": true,
     "auto_detect_interface": true,
     "final": "Proxy",
     "rule_set": [
