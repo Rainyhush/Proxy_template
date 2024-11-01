@@ -15,7 +15,7 @@ config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
   if (['其它'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|狮城|韩国|加拿大|英国|阿根廷/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|加拿大|英国|阿根廷|乌克兰/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['香港'].includes(i.tag)) {
@@ -38,6 +38,10 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /韩国/i.test(p.tag))
       .map(p => p.tag))
   }
+  if (['美国'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /美国/i.test(p.tag))
+      .map(p => p.tag))
+  }
   if (['加拿大'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /加拿大/i.test(p.tag))
       .map(p => p.tag))
@@ -50,8 +54,16 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /阿根廷/i.test(p.tag))
       .map(p => p.tag))
   }
+  if (['乌克兰'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /乌克兰/i.test(p.tag))
+      .map(p => p.tag))
+  }
   if (['江苏'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /徐州|镇江/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => /徐州/i.test(p.tag))
+      .map(p => p.tag))
+  }
+  if (['四川'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /镇江/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['武汉'].includes(i.tag)) {
