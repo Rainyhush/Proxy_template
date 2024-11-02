@@ -88,39 +88,43 @@ proxies:
 proxy-groups:
   - name: Proxy
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: Google
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: OpenAI
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: YouTube
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: Telegram
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: Microsoft
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: Spotify
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: GitHub
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
 
   - name: China
     type: select
-    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,其它节点,全部节点,REJECT-DROP]
+    proxies:  [香港,台湾,日本,新加坡,韩国,美国,加拿大,乌克兰,英国,阿根廷,江苏,武汉,山东,四川,内置策略,其它节点,全部节点]
+
+  - name: 内置策略
+    type: select
+    proxies: [REJECT-DROP,DIRECT]
 
   - name: 香港
     type: select
@@ -196,7 +200,7 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|加|乌|英|阿|徐|镇|武|济|dns-out)).*"
-
+    
   - name: 全部节点
     type: url-test
     include-all: true

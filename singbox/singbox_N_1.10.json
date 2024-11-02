@@ -147,7 +147,8 @@
         "四川",
         "武汉",
         "山东",
-        "其它"
+        "其它",
+        "内置策略"
       ],
       "default": "香港"
     },
@@ -169,7 +170,8 @@
         "四川",
         "武汉",
         "山东",
-        "其它"
+        "其它",
+        "内置策略"
       ],
       "default": "日本"
     },
@@ -191,7 +193,8 @@
         "四川",
         "武汉",
         "山东",
-        "其它"
+        "其它",
+        "内置策略"
       ],
       "default": "新加坡"
     },
@@ -213,7 +216,8 @@
         "四川",
         "武汉",
         "山东",
-        "其它"
+        "其它",
+        "内置策略"
       ],
       "default": "香港"
     },
@@ -235,7 +239,8 @@
         "四川",
         "武汉",
         "山东",
-        "其它"
+        "其它",
+        "内置策略"
       ],
       "default": "江苏"
     },
@@ -328,11 +333,11 @@
       "outbounds": []
     }, 
     {
-      "tag": "内置",
+      "tag": "内置策略",
       "type": "selector",
       "outbounds": [
-        "dns-out",
         "block",
+        "dns-out",
         "direct"
         ]
     },
@@ -369,7 +374,7 @@
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
-        "outbound": "block"
+        "outbound": "内置策略"
       },
       {
         "type": "logical",
@@ -426,7 +431,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       },
       {
@@ -434,7 +439,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/google.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       },
       {
@@ -442,7 +447,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/spotify.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       },
       {
@@ -450,7 +455,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geoip/google.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       },
       {
@@ -458,7 +463,7 @@
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       },
       {
@@ -466,21 +471,23 @@
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs",
-        "download_detour": "China"
+        "download_detour": "Proxy",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs",
-        "download_detour": "China"
+        "download_detour": "Proxy",
+        "update_interval": "1d"
       },
       {
         "tag": "geosite-geolocation-!cn",
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/geolocation-!cn.srs",
-        "download_detour": "China",
+        "download_detour": "Proxy",
         "update_interval": "1d"
       }
     ]
