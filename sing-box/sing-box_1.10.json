@@ -199,6 +199,75 @@
       "default": "新加坡"
     },
     {
+      "tag": "GitHub",
+      "type": "selector",
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "乌克兰",
+        "江苏",
+        "四川",
+        "武汉",
+        "山东",
+        "其它",
+        "内置策略"
+      ],
+      "default": "香港"
+    },
+    {
+      "tag": "Microsoft",
+      "type": "selector",
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "乌克兰",
+        "江苏",
+        "四川",
+        "武汉",
+        "山东",
+        "其它",
+        "内置策略"
+      ],
+      "default": "新加坡"
+    },
+    {
+      "tag": "YouTube",
+      "type": "selector",
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "乌克兰",
+        "江苏",
+        "四川",
+        "武汉",
+        "山东",
+        "其它",
+        "内置策略"
+      ],
+      "default": "日本"
+    },
+    {
       "tag": "Spotify",
       "type": "selector",
       "outbounds": [
@@ -220,6 +289,29 @@
         "内置策略"
       ],
       "default": "香港"
+    },
+    {
+      "tag": "Telegram",
+      "type": "selector",
+      "outbounds": [
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "加拿大",
+        "英国",
+        "阿根廷",
+        "乌克兰",
+        "江苏",
+        "四川",
+        "武汉",
+        "山东",
+        "其它",
+        "内置策略"
+      ],
+      "default": "新加坡"
     },
     {
       "tag": "China",
@@ -410,8 +502,24 @@
         "outbound": "Spotify"
       },
       {
+        "rule_set": "geosite-github",
+        "outbound": "GitHub"
+      },
+      {
+        "rule_set": "geosite-microsoft",
+        "outbound": "Microsoft"
+      },
+      {
+        "rule_set": "geosite-youtube",
+        "outbound": "YouTube"
+      },
+      {
         "rule_set": ["geosite-google", "geoip-google"],
         "outbound": "Google"
+      },
+      {
+        "rule_set": ["geosite-telegram", "geoip-telegram"],
+        "outbound": "Telegram"
       },
       {
         "rule_set": ["geosite-cn", "geoip-cn"],
@@ -459,10 +567,50 @@
         "update_interval": "1d"
       },
       {
+        "tag": "geosite-youtube",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/youtube.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
         "tag": "geosite-openai",
         "type": "remote",
         "format": "binary",
         "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/openai.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geosite-github",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/github.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geosite-microsoft",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/microsoft.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geosite-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/telegram.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geoip-telegram",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://mirror.ghproxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/telegram.srs",
         "download_detour": "Proxy",
         "update_interval": "1d"
       },
