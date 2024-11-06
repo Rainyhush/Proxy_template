@@ -1,0 +1,306 @@
+mode: rule
+allow-lan: true
+ipv6: true
+global-ua: clash.meta
+log-level: info
+mixed-port: 7890
+unified-delay: true
+tcp-concurrent: true
+disable-keep-alive: false
+keep-alive-interval: 30
+interface-name: Meta
+find-process-mode: strict
+global-client-fingerprint: chrome
+external-controller: 127.0.0.1:9000
+
+geodata-mode: false
+geodata-loader: standard
+geo-auto-update: true
+geo-update-interval: 24
+geox-url:
+  geoip: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geoip.dat"
+  geosite: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/geosite.dat"
+  mmdb: "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@release/country.mmdb"
+  asn: "https://github.com/xishang0128/geoip/releases/download/latest/GeoLite2-ASN.mmdb"
+  proxy: Proxy
+profile:
+  store-selected: true
+  store-fake-ip: true
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP:
+      ports: [80, 8080-8880]
+      override-destination: true
+    TLS:
+      ports: [443, 8443]
+    QUIC:
+      ports: [443, 8443]
+
+dns:
+  enable: true
+  ipv6: true
+  respect-rules: true
+  enhanced-mode: fake-ip
+  fake-ip-filter:
+    - "*"
+    - "+.lan"
+    - "+.local"
+  nameserver:
+    - https://1.1.1.1/dns-query
+    - https://223.5.5.5/dns-query
+  proxy-server-nameserver:
+    - https://223.5.5.5/dns-query
+    - https://120.53.53.53/dns-query
+  nameserver-policy:
+    "rule-set:ChinaMax_Domain,private":
+      - https://223.5.5.5/dns-query
+      - https://120.53.53.53/dns-query
+    "rule-set:geolocation-!cn,google,openai,github,microsoft,youtube,spotify":
+      - https://dns.cloudflare.com/dns-query
+      - https://dns.google/dns-query
+
+tun:
+  enable: true
+  stack: mixed
+  dns-hijack:
+    - "any:53"
+    - "tcp://any:53"
+  auto-route: true
+  auto-redirect: true
+  strict-route: true
+  auto-detect-interface: true
+
+proxy-providers:
+  provider1:
+    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/ZGJ?target=ClashMeta"
+    type: http
+    interval: 86400
+    proxy: Proxy
+    health-check: 
+      enable: true
+      interval: 1800
+      url: "https://www.gstatic.com/generate_204"
+
+proxies:
+  - name: "dns-out"
+    type: dns
+proxy-groups:
+  - name: Proxy
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: Google
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: OpenAI
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: YouTube
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: Telegram
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: Microsoft
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: Spotify
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: GitHub
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: China
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: AdBlock
+    type: select
+    proxies:  [香港,日本,新加坡,台湾,韩国,美国,英国,中国,其它地区,Built-In]
+
+  - name: Built-In
+    type: select
+    proxies: [REJECT-DROP,DIRECT]
+
+  - name: 香港
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(港|hk|HK|HongKong)"
+
+  - name: 台湾
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+
+    include-all: true
+    filter: "(?i)(台|tw|TW|Taiwan)"
+
+  - name: 日本
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(日|jp|JP|Japan)"
+
+  - name: 新加坡
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(新|sg|SG|singapore)"
+
+  - name: 韩国
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(韩)"
+
+  - name: 美国
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(美)"
+
+  - name: 英国
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(英)"
+
+  - name: 中国
+    type: url-test
+    interval: 600
+    tolerance: 20
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)(徐|镇|武|济)"
+
+  - name: 其它地区
+    type: url-test
+    interval: 600
+    tolerance: 50
+    lazy: true
+    url: 'https://www.gstatic.com/generate_204'
+    include-all: true
+    filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|镇|武|济|dns-out)).*"
+    
+#  - name: 全部地区
+#    type: url-test
+#    include-all: true
+#    exclude-filter: "dns-out" 
+#    interval: 1800
+#    tolerance: 50
+
+rules:
+  - RULE-SET,Advertising_Domain,AdBlock
+  - DST-PORT,53,dns-out
+  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),AdBlock # 禁用quic(不包括国内)
+  - RULE-SET,github,GitHub
+  - RULE-SET,openai,OpenAI
+  - RULE-SET,youtube,YouTube
+  - RULE-SET,spotify,Spotify
+  - RULE-SET,telegram,Telegram
+  - RULE-SET,telegram_ip,Telegram
+  - RULE-SET,microsoft,Microsoft
+  - RULE-SET,google,Google
+  - RULE-SET,google_ip,Google
+  - RULE-SET,geolocation-!cn,Proxy
+  - RULE-SET,ChinaMax_Domain,China
+  - RULE-SET,ChinaMax_IP,China
+  - RULE-SET,private,China
+  - MATCH,Proxy
+
+rule-anchor:
+  ip: &ip
+    type: http
+    interval: 86400
+    proxy: Proxy
+    behavior: ipcidr
+    format: yaml
+  domain: &domain
+    type: http
+    interval: 86400
+    proxy: Proxy
+    behavior: domain
+    format: yaml
+  classical: &classical
+    type: http
+    interval: 86400
+    proxy: Proxy
+    behavior: classical
+    format: yaml
+
+rule-providers:
+  Advertising_Domain:
+    <<: *domain
+    url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Advertising/Advertising_Domain.yaml"
+  ChinaMax_Domain:
+    <<: *domain
+    url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml"
+  private:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.yaml"
+  google:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.yaml"
+  github:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml"
+  openai:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml"
+  spotify:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.yaml"
+  youtube:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.yaml"
+  telegram:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.yaml"
+  microsoft:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.yaml"
+  geolocation-!cn:
+    <<: *domain
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.yaml"
+
+  ChinaMax_IP:
+    <<: *ip
+    url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_IP.yaml"
+  google_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.yaml"
+  telegram_ip:
+    <<: *ip
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.yaml"
+
