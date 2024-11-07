@@ -139,16 +139,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "香港"
     },
@@ -162,16 +156,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "日本"
     },
@@ -185,16 +173,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "新加坡"
     },
@@ -208,16 +190,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "香港"
     },
@@ -231,16 +207,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "新加坡"
     },
@@ -254,16 +224,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "日本"
     },
@@ -277,16 +241,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "香港"
     },
@@ -300,16 +258,10 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
       "default": "新加坡"
     },
@@ -323,18 +275,12 @@
         "台湾",
         "韩国",
         "美国",
-        "加拿大",
         "英国",
-        "阿根廷",
-        "乌克兰",
-        "江苏",
-        "四川",
-        "武汉",
-        "山东",
-        "其它",
-        "内置策略"
+        "中国",
+        "其它地区",
+        "Built-In"
       ],
-      "default": "江苏"
+      "default": "中国"
     },
     {
       "tag": "香港",
@@ -358,74 +304,26 @@
     },
     {
       "tag": "韩国",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
+      "type": "selector",
+      "outbounds": []
     },
     {
       "tag": "美国",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
-    },
-    {
-      "tag": "加拿大",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
+      "type": "selector",
+      "outbounds": []
     },
     {
       "tag": "英国",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
-    },
-    {
-      "tag": "阿根廷",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
-    },
-    {
-      "tag": "乌克兰",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
-    },
-    {
-      "tag": "江苏",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "武汉",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "四川",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
-      "tag": "山东",
+      "tag": "中国",
       "type": "selector",
       "outbounds": []
     }, 
     {
-      "tag": "内置策略",
+      "tag": "Built-In",
       "type": "selector",
       "outbounds": [
         "block",
@@ -434,15 +332,12 @@
         ]
     },
     {
-      "tag": "其它",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "30m",
-      "tolerance": 50
+      "tag": "其它地区",
+      "type": "selector",
+      "outbounds": []
     },
     {
-      "tag": "全部节点",
+      "tag": "全部地区",
       "type": "urltest",
       "outbounds": [],
       "url": "https://www.gstatic.com/generate_204",
@@ -466,7 +361,7 @@
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
-        "outbound": "内置策略"
+        "outbound": "Built-In"
       },
       {
         "type": "logical",

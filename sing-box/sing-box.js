@@ -6,7 +6,7 @@ const compatible_outbound = {
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
-  name: 'ZGJ', 
+  name: '中国国际机场', 
   type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
@@ -14,8 +14,8 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
-  if (['其它'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|加拿大|英国|阿根廷|乌克兰/i.test(p.tag))
+  if (['其它地区'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|英国/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['香港'].includes(i.tag)) {
@@ -42,39 +42,15 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /美国/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['加拿大'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /加拿大/i.test(p.tag))
-      .map(p => p.tag))
-  }
    if (['英国'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /英国/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['阿根廷'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /阿根廷/i.test(p.tag))
+  if (['中国'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /徐州|武汉|镇江|济南/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['乌克兰'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /乌克兰/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['江苏'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /徐州/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['四川'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /镇江/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['武汉'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /武汉/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['山东'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /济南/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['全部节点'].includes(i.tag)) {
+  if (['全部地区'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => !/block/i.test(p.tag))
       .map(p => p.tag))
   }
