@@ -5,7 +5,7 @@
   },
   "experimental": {
     "clash_api": {
-      "external_controller": "127.0.0.1:9090",
+      "external_controller": "127.0.0.1:9091",
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://mirror.ghproxy.com/https://github.com/MetaCubeX/metacubexd/archive/refs/heads/gh-pages.zip",
@@ -26,7 +26,7 @@
     },
     "servers": [
       {
-        "tag": "google",
+        "tag": "Remote",
         "address": "https://1.1.1.1/dns-query",
         "detour": "Proxy"
       },
@@ -38,28 +38,29 @@
       {
         "tag": "fakeip",
         "address": "fakeip"
-      },
-      {
-        "tag": "block",
-        "address": "rcode://success"
       }
     ],
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
-        "server": "block"
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
       },
       {
         "outbound": "any",
+        "action": "route",
         "server": "local"
       },
       {
         "clash_mode": "direct",
+        "action": "route",
         "server": "local"
       },
       {
         "clash_mode": "global",
-        "server": "google"
+        "action": "route",
+        "server": "Remote"
       },
       {
         "query_type": [
@@ -67,10 +68,12 @@
           "AAAA"
         ],
         "rule_set": "geosite-cn",
+        "action": "route",
         "server": "fakeip"
       },
       {
         "rule_set": "geosite-cn",
+        "action": "route",
         "server": "local"
       },
       {
@@ -85,7 +88,8 @@
             "rule_set": "geoip-cn"
           }
         ],
-        "server": "google",
+        "action": "route",
+        "server": "Remote",
         "client_subnet": "114.114.114.114/24"
       },
       {
@@ -93,6 +97,7 @@
           "A",
           "AAAA"
         ],
+        "action": "route",
         "server": "fakeip"
       }
     ],
@@ -103,6 +108,7 @@
     {
       "tag": "tun-in",
       "type": "tun",
+      "interface_name": "singbox.tun",
       "address": [
         "172.19.0.0/30",
         "fdfe:dcba:9876::0/126"
@@ -111,7 +117,6 @@
       "mtu": 9000,
       "auto_route": true,
       "strict_route": true,
-      "sniff": true,
       "platform": {
         "http_proxy": {
           "enabled": true,
@@ -121,7 +126,7 @@
       }
     },
     {
-      "tag": "in",
+      "tag": "mixed-in",
       "type": "mixed",
       "listen": "127.0.0.1",
       "listen_port": 7890
@@ -140,8 +145,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "香港"
     },
@@ -157,8 +161,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "日本"
     },
@@ -174,8 +177,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "新加坡"
     },
@@ -191,8 +193,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "香港"
     },
@@ -208,8 +209,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "新加坡"
     },
@@ -225,8 +225,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "日本"
     },
@@ -242,8 +241,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "香港"
     },
@@ -259,8 +257,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "新加坡"
     },
@@ -276,8 +273,7 @@
         "美国",
         "英国",
         "中国",
-        "其它地区",
-        "Built-In"
+        "其它地区"
       ],
       "default": "中国"
     },
@@ -322,14 +318,6 @@
       "outbounds": []
     }, 
     {
-      "tag": "Built-In",
-      "type": "selector",
-      "outbounds": [
-        
-        "direct"
-        ]
-    },
-    {
       "tag": "其它地区",
       "type": "selector",
       "outbounds": []
@@ -351,72 +339,83 @@
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
-        "action": "reject"
-      },
-      {
-        "action": "sniff"
+        "action": "reject",
+        "method": "default",
+        "no_drop": false
       },
       {
         "protocol": "dns",
         "action": "hijack-dns"
       },
       {
-        "inbound": "in",
-        "action": "resolve",
-        "strategy": "prefer_ipv4"
+        "inbound": "mixed-in",
+        "action": "sniff"
+        
       },
       {
-        "inbound": "in",
-        "action": "sniff",
-        "timeout": "5s"
+        "inbound": "tun-in",
+        "action": "sniff"
+        
       },
       
       {
         "ip_is_private": true,
+        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "direct",
+        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "global",
+        "action": "route",
         "outbound": "Proxy"
       },
       {
         "rule_set": "geosite-openai",
+        "action": "route",
         "outbound": "OpenAI"
       },
       {
         "rule_set": "geosite-spotify",
+        "action": "route",
         "outbound": "Spotify"
       },
       {
         "rule_set": "geosite-github",
+        "action": "route",
         "outbound": "GitHub"
       },
       {
         "rule_set": "geosite-microsoft",
+        "action": "route",
         "outbound": "Microsoft"
       },
       {
         "rule_set": "geosite-youtube",
+        "action": "route",
         "outbound": "YouTube"
       },
       {
         "rule_set": ["geosite-google", "geoip-google"],
+        "action": "route",
         "outbound": "Google"
       },
       {
         "rule_set": ["geosite-telegram", "geoip-telegram"],
+        "action": "route",
         "outbound": "Telegram"
       },
       {
         "rule_set": ["geosite-cn", "geoip-cn"],
+        "action": "route",
         "outbound": "China"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
+        "action": "route",
         "outbound": "Proxy"
       }
     ],
