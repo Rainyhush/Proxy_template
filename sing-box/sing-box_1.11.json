@@ -314,8 +314,11 @@
     },
     {
       "tag": "中国",
-      "type": "selector",
-      "outbounds": []
+      "type": "urltest",
+      "outbounds": [],
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50
     }, 
     {
       "tag": "其它地区",
@@ -344,20 +347,17 @@
         "no_drop": false
       },
       {
-        "protocol": "dns",
-        "action": "hijack-dns"
+        "inbound": "tun-in",
+        "action": "sniff"
       },
       {
         "inbound": "mixed-in",
         "action": "sniff"
-        
       },
       {
-        "inbound": "tun-in",
-        "action": "sniff"
-        
+        "protocol": "dns",
+        "action": "hijack-dns"
       },
-      
       {
         "ip_is_private": true,
         "action": "route",
