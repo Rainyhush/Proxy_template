@@ -378,12 +378,12 @@
       {
         "ip_is_private": true,
         "action": "route",
-        "outbound": "direct"
+        "outbound": "China"
       },
       {
         "clash_mode": "direct",
         "action": "route",
-        "outbound": "direct"
+        "outbound": "China"
       },
       {
         "clash_mode": "global",
