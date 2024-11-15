@@ -6,7 +6,7 @@ const compatible_outbound = {
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
-  name: '中国国际机场',
+  name: 'RHK',
   type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
