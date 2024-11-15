@@ -136,6 +136,11 @@
   ],
   "outbounds": [
     {
+      "tag": "Flow",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [

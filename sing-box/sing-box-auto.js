@@ -14,8 +14,12 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
+  if (['Flow'].includes(i.tag)) {
+  i.outbounds.push(...proxies.filter(p => /GB|TB|徐州/i.test(p.tag))
+    .map(p => p.tag))
+  }
   if (['其它地区'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|英国/i.test(p.tag))
+    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|英国|GB|TB/i.test(p.tag))
       .map(p => p.tag))
   }
   if (['香港'].includes(i.tag)) {
