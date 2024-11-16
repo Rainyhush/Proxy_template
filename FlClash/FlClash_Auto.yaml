@@ -59,8 +59,8 @@ dns:
     - https://dns.alidns.com/dns-query
     - https://doh.pub/dns-query
   proxy-server-nameserver:
-    - https://223.5.5.5/dns-query
-    - https://120.53.53.53/dns-query
+    - https://1.1.1.1/dns-query
+
   nameserver-policy:
     "rule-set:ChinaMax_Domain,private":
       - https://dns.alidns.com/dns-query
@@ -114,139 +114,139 @@ proxy-groups:
   - name: Proxy
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
       
   - name: Google
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: OpenAI
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: YouTube
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: Telegram
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: Microsoft
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: Spotify
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: GitHub
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
   - name: China
     type: select
     proxies:
-      - 香港
-      - 日本
-      - 新加坡
-      - 台湾
-      - 韩国
-      - 美国
-      - 英国
-      - 中国
-      - 其它地区
-      - 负载均衡
+      - HongKong
+      - Japan
+      - Singapore
+      - Taiwan
+      - Korea
+      - America
+      - United Kingdom
+      - ChinaR
+      - Other
+      - Load balancing
       - Built-In
 
-  - name: 香港
+  - name: HongKong
     type: url-test
     interval: 600
     tolerance: 20
@@ -255,7 +255,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(港|hk|HK|HongKong)"
 
-  - name: 日本
+  - name: Japan
     type: url-test
     interval: 600
     tolerance: 20
@@ -264,7 +264,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(日|jp|JP|Japan)"
 
-  - name: 新加坡
+  - name: Singapore
     type: url-test
     interval: 600
     tolerance: 20
@@ -273,7 +273,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(新|sg|SG|singapore)"
 
-  - name: 台湾
+  - name: Taiwan
     type: url-test
     interval: 600
     tolerance: 20
@@ -281,17 +281,17 @@ proxy-groups:
     url: 'https://www.gstatic.com/generate_204'
     include-all: true
     filter: "(?i)(台|tw|TW|Taiwan)"
-  - name: 台湾-散列
+  - name: Taiwan-C
     <<: *lb-c
     include-all: true
     filter: "(?i)(台|tw|TW|Taiwan)"
-  - name: 台湾-轮询
+  - name: Taiwan-R
     <<: *lb-r
     include-all: true
     filter: "(?i)(台|tw|TW|Taiwan)"
 
 
-  - name: 韩国
+  - name: Korea
     type: url-test
     interval: 600
     tolerance: 20
@@ -300,7 +300,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(韩)"
 
-  - name: 美国
+  - name: America
     type: url-test
     interval: 600
     tolerance: 20
@@ -308,16 +308,16 @@ proxy-groups:
     url: 'https://www.gstatic.com/generate_204'
     include-all: true
     filter: "(?i)(美)"
-  - name: 美国-散列
+  - name: America-C
     <<: *lb-c
     include-all: true
     filter: "(?i)(美)"
-  - name: 美国-轮询
+  - name: America-R
     <<: *lb-r
     include-all: true
     filter: "(?i)(美)"
 
-  - name: 英国
+  - name: United Kingdom
     type: url-test
     interval: 600
     tolerance: 20
@@ -326,7 +326,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(英)"
 
-  - name: 中国
+  - name: ChinaR
     type: url-test
     interval: 600
     tolerance: 20
@@ -335,7 +335,7 @@ proxy-groups:
     include-all: true
     filter: "(?i)(徐|镇|武|济)"
 
-  - name: 其它地区
+  - name: Other
     type: url-test
     interval: 600
     tolerance: 50
@@ -344,13 +344,13 @@ proxy-groups:
     include-all: true
     filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|镇|武|济|dns-out)).*"
 
-  - name: 负载均衡
+  - name: Load balancing
     type: select
     proxies:
-      - 台湾-散列
-      - 台湾-轮询
-      - 美国-散列
-      - 美国-轮询
+      - Taiwan-C
+      - Taiwan-R
+      - America-C
+      - America-R
 
   - name: Built-In
     type: select
