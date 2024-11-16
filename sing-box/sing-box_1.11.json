@@ -136,204 +136,206 @@
   ],
   "outbounds": [
     {
+      "tag": "Flow",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "香港"
+      "default": "HongKong"
     },
     {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "日本"
+      "default": "Japan"
     },
     {
       "tag": "OpenAI",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "新加坡"
+      "default": "Singapore"
     },
     {
       "tag": "GitHub",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "香港"
+      "default": "HongKong"
     },
     {
       "tag": "Microsoft",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "新加坡"
+      "default": "Singapore"
     },
     {
       "tag": "YouTube",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "日本"
+      "default": "Japan"
     },
     {
       "tag": "Spotify",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "香港"
+      "default": "HongKong"
     },
     {
       "tag": "Telegram",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "新加坡"
+      "default": "Singapore"
     },
     {
       "tag": "China",
       "type": "selector",
       "outbounds": [
-        "香港",
-        "日本",
-        "新加坡",
-        "台湾",
-        "韩国",
-        "美国",
-        "英国",
-        "中国",
-        "其它地区"
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "United Kingdom",
+        "China",
+        "Other"
       ],
-      "default": "中国"
+      "default": "China"
     },
     {
-      "tag": "香港",
+      "tag": "HongKong",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "日本",
+      "tag": "Japan",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "新加坡",
+      "tag": "Singapore",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "台湾",
+      "tag": "Taiwan",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "韩国",
+      "tag": "Korea",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "美国",
+      "tag": "America",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "英国",
+      "tag": "United Kingdom",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "中国",
-      "type": "urltest",
-      "outbounds": [],
-      "url": "http://cp.cloudflare.com/",
-      "interval": "10m",
-      "tolerance": 50
-    }, 
-    {
-      "tag": "其它地区",
+      "tag": "China",
       "type": "selector",
       "outbounds": []
     },
     {
-      "tag": "全部地区",
+      "tag": "Other",
+      "type": "selector",
+      "outbounds": []
+    },
+    {
+      "tag": "Aii",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
       "interval": "30m",
-      "tolerance": 50
+      "tolerance": 100
     },
     {
       "type": "direct",
@@ -401,7 +403,7 @@
         "outbound": "Google"
       },
       {
-        "rule_set": ["geosite-telegram","geoip-telegram"],
+        "rule_set": ["geosite-telegram", "geoip-telegram"],
         "action": "route",
         "outbound": "Telegram"
       },

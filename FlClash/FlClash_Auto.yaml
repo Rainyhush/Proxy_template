@@ -84,7 +84,7 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/%E4%B8%AD%E5%9B%BD%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA?target=ClashMeta"
+    url: "https://gist.githubusercontent.com/Rainyhush/d1503a87dddac696c9e22f8658eb878d/raw/Clash.Meta"
     type: http
     interval: 86400
     proxy: Proxy

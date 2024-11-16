@@ -6,7 +6,7 @@ const compatible_outbound = {
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
-  name: '中国国际机场', 
+  name: 'RHK',
   type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
@@ -14,44 +14,48 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
-  if (['其它地区'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/香港|镇江|徐州|武汉|济南|台湾|日本|新加坡|美国|韩国|英国/i.test(p.tag))
+  if (['Flow'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /GB|TB|徐州/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['香港'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /香港/i.test(p.tag))
+  if (['Other'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => !/镇江|徐州|武汉|济南|香港|HongKong|台湾|Taiwan|日本|Japan|新加坡|Singapore|美国|America|韩国|Korea|英国|United Kingdom|GB|TB/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['台湾'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /台湾/i.test(p.tag))
+  if (['Aii'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => !/direct/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['日本'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /日本/i.test(p.tag))
+  if (['HongKong'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /香港|HongKong/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['新加坡'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /新加坡/i.test(p.tag))
+  if (['Taiwan'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /台湾|Taiwan/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['韩国'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /韩国/i.test(p.tag))
+  if (['Japan'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /日本|Japan/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['美国'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /美国/i.test(p.tag))
+  if (['Singapore'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /新加坡|Singapore/i.test(p.tag))
       .map(p => p.tag))
   }
-   if (['英国'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => /英国/i.test(p.tag))
+  if (['Korea'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /韩国|Korea/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['中国'].includes(i.tag)) {
+  if (['America'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /美国|America/i.test(p.tag))
+      .map(p => p.tag))
+  }
+  if (['United Kingdom'].includes(i.tag)) {
+    i.outbounds.push(...proxies.filter(p => /英国|UnitedKingdom|United Kingdom/i.test(p.tag))
+      .map(p => p.tag))
+  }
+  if (['China'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /徐州|武汉|镇江|济南/i.test(p.tag))
-      .map(p => p.tag))
-  }
-  if (['全部地区'].includes(i.tag)) {
-    i.outbounds.push(...proxies.filter(p => !/block/i.test(p.tag))
       .map(p => p.tag))
   }
 })
