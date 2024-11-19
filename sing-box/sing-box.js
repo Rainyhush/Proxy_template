@@ -54,7 +54,7 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /英国|UnitedKingdom|United Kingdom/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['China'].includes(i.tag)) {
+  if (['ChinaR'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /徐州|武汉|镇江|济南/i.test(p.tag))
       .map(p => p.tag))
   }
