@@ -75,12 +75,12 @@
           "A",
           "AAAA"
         ],
-        "rule_set": "cn",
+        "rule_set": "geo-cn",
         "action": "route",
         "server": "fakeip"
       },
       {
-        "rule_set": "cn",
+        "rule_set": "geo-cn",
         "action": "route",
         "server": "local"
       },
@@ -93,7 +93,7 @@
             "invert": true
           },
           {
-            "rule_set": "cn"
+            "rule_set": "geo-cn"
           }
         ],
         "action": "route",
@@ -143,11 +143,6 @@
   ],
   "outbounds": [
     {
-      "tag": "Flow",
-      "type": "selector",
-      "outbounds": []
-    },
-    {
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
@@ -157,7 +152,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -173,7 +168,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -189,7 +184,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -205,7 +200,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -221,7 +216,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -237,7 +232,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -253,7 +248,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -269,7 +264,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -285,7 +280,7 @@
         "Taiwan",
         "Korea",
         "America",
-        "United Kingdom",
+        "UnitedKingdom",
         "ChinaR",
         "Other"
       ],
@@ -340,7 +335,7 @@
       "tolerance": 30
     },
     {
-      "tag": "United Kingdom",
+      "tag": "UnitedKingdom",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -434,7 +429,7 @@
         "outbound": "Telegram"
       },
       {
-        "rule_set": "cn",
+        "rule_set": "geo-cn",
         "action": "route",
         "outbound": "China"
       },
@@ -521,7 +516,7 @@
         "update_interval": "1d"
       },
       {
-        "tag": "cn",
+        "tag": "geo-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaMax/ChinaMax.srs",

@@ -14,10 +14,6 @@ let proxies = await produceArtifact({
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
-  if (['Flow'].includes(i.tag)) {
-  i.outbounds.push(...proxies.filter(p => /GB|TB|徐州/i.test(p.tag))
-    .map(p => p.tag))
-  }
   if (['Other'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => !/镇江|徐州|武汉|济南|香港|HongKong|台湾|Taiwan|日本|Japan|新加坡|Singapore|美国|America|韩国|Korea|英国|United Kingdom|GB|TB/i.test(p.tag))
       .map(p => p.tag))
@@ -46,7 +42,7 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => /美国|America/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['United Kingdom'].includes(i.tag)) {
+  if (['UnitedKingdom'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => /英国|UnitedKingdom|United Kingdom/i.test(p.tag))
       .map(p => p.tag))
   }
