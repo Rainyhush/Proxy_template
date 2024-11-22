@@ -36,7 +36,7 @@
         "tag": "local",
         "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "tx-resolver",
-        "detour": "direct"
+        "detour": "China"
       },
       {
         "tag": "tx-resolver",
@@ -291,7 +291,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -299,7 +299,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -307,7 +307,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -315,7 +315,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -323,7 +323,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -331,7 +331,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -339,7 +339,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -347,7 +347,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
@@ -355,7 +355,7 @@
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
-      "interval": "5m",
+      "interval": "10m",
       "tolerance": 30
     },
     {
