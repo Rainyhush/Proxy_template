@@ -6,7 +6,7 @@ const compatible_outbound = {
 let compatible
 let config = JSON.parse($files[0])
 let proxies = await produceArtifact({
-  name: 'RHK',
+  name: 'RHKTMS',
   type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
@@ -18,7 +18,7 @@ config.outbounds.map(i => {
     i.outbounds.push(...proxies.filter(p => !/镇江|徐州|武汉|济南|香港|HongKong|台湾|Taiwan|日本|Japan|新加坡|Singapore|美国|America|韩国|Korea|英国|United Kingdom|GB|TB/i.test(p.tag))
       .map(p => p.tag))
   }
-  if (['Aii'].includes(i.tag)) {
+  if (['AII'].includes(i.tag)) {
     i.outbounds.push(...proxies.filter(p => !/direct/i.test(p.tag))
       .map(p => p.tag))
   }

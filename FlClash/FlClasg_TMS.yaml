@@ -85,7 +85,7 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
 
 u: &u {type: url-test, interval: 600, tolerance: 50, lazy: true, url: 'https://www.gstatic.com/generate_204'}
-pr: &pr {type: select, proxies: [香港策略组, 香港自动策略组, 日本策略组, 日本自动策略组, 新加坡策略组, 新加坡自动策略组, 台湾策略组, 台湾自动策略组, 韩国策略组, 韩国自动策略组, 美国策略组, 美国自动策略组, 英国策略组, 英国自动策略组, 国内策略组, 国内自动策略组, 其它策略组, 其它自动策略组]}
+pr: &pr {type: select, proxies: [香港策略组, 日本策略组, 新加坡策略组, 台湾策略组, 韩国策略组, 美国策略组, 英国策略组, 国内策略组, 其它策略组]}
 
 proxies:
   - name: "dns-out"
@@ -109,20 +109,8 @@ proxy-groups:
     include-all: true
     filter: "(?i)(港|hk|HK|HongKong)"
 
-  - name: 香港自动策略组
-    <<: *u
-    icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png'
-    include-all: true
-    filter: "(?i)(港|hk|HK|HongKong)"
-
   - name: 日本策略组
     type: select
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    include-all: true
-    filter: "(?i)(日|jp|JP|Japan)"
-    
-  - name: 日本自动策略组
-    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
     include-all: true
     filter: "(?i)(日|jp|JP|Japan)"
@@ -133,20 +121,8 @@ proxy-groups:
     include-all: true
     filter: "(?i)(新|sg|SG|singapore)"
 
-  - name: 新加坡自动策略组
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    include-all: true
-    filter: "(?i)(新|sg|SG|singapore)"
-
   - name: 台湾策略组
     type: select
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
-    include-all: true
-    filter: "(?i)(台|tw|TW|Taiwan)"
-
-  - name: 台湾自动策略组
-    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
     include-all: true
     filter: "(?i)(台|tw|TW|Taiwan)"
@@ -157,20 +133,8 @@ proxy-groups:
     include-all: true
     filter: "(?i)(韩|KR|Korea)"
 
-  - name: 韩国自动策略组
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    include-all: true
-    filter: "(?i)(韩|KR|Korea)"
-
   - name: 美国策略组
     type: select
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    include-all: true
-    filter: "(?i)(美|USA|America|United States)"
-
-  - name: 美国自动策略组
-    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
     filter: "(?i)(美|USA|America|United States)"
@@ -181,32 +145,14 @@ proxy-groups:
     include-all: true
     filter: "(?i)(英|UK|United Kingdom)"
 
-  - name: 英国自动策略组
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
-    include-all: true
-    filter: "(?i)(英|UK|United Kingdom)"
-
   - name: 国内策略组
     type: select
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
     filter: "(?i)(徐|广|浙|镇|武|济)"
 
-  - name: 国内自动策略组
-    <<: *u
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    include-all: true
-    filter: "(?i)(徐|广|浙|镇|武|济)"
-
   - name: 其它策略组
     type: select
-    icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
-    include-all: true
-    filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|广|浙|镇|武|济|dns-out)).*"
-
-  - name: 其它自动策略组
-    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
     filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|广|浙|镇|武|济|dns-out)).*"

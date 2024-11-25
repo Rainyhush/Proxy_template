@@ -36,7 +36,7 @@
         "tag": "local",
         "address": "https://dns.alidns.com/dns-query",
         "address_resolver": "tx-resolver",
-        "detour": "China"
+        "detour": "direct"
       },
       {
         "tag": "tx-resolver",
@@ -447,7 +447,7 @@
         "tag": "Advertising",
         "type": "remote",
         "format": "binary",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Advertising/Advertising.srs",
+        "url": "https://testingcf.jsdelivr.net/gh/MetaCubeX/meta-rules-dat@sing/geo/geosite/category-ads-all.srs",
         "download_detour": "Proxy",
         "update_interval": "1d"
       },
