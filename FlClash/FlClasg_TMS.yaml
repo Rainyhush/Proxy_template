@@ -95,6 +95,7 @@ proxy-groups:
   - {name: Proxy, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png"}
   - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"}
   - {name: OpenAI, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Bot.png"}
+  - {name: Gemini, <<: *pr, icon: "https://brandlogos.net/wp-content/uploads/2024/04/gemini-logo_brandlogos.net_fwajr.png"}
   - {name: YouTube, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"}
   - {name: Telegram, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png"}
   - {name: Microsoft, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Microsoft.png"}
@@ -169,6 +170,7 @@ rules:
   - RULE-SET,telegram,Telegram
   - RULE-SET,telegram_ip,Telegram,no-resolve
   - RULE-SET,microsoft,Microsoft
+  - RULE-SET,gemini,Gemini
   - RULE-SET,google,Google
   - RULE-SET,google_ip,Google,no-resolve
   - RULE-SET,geolocation-!cn,Proxy,no-resolve
@@ -196,7 +198,12 @@ rule-anchor:
     proxy: Proxy
     behavior: classical
     format: yaml
-
+  domain: &domain_mrs
+    type: http
+    interval: 86400
+    proxy: Proxy
+    behavior: domain
+    format: mrs
 # 规则集
 rule-providers:
   Advertising_Domain:
@@ -214,6 +221,9 @@ rule-providers:
   github:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.yaml"
+  gemini:
+    <<: *domain_mrs
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google-gemini.mrs"
   openai:
     <<: *domain
     url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.yaml"
