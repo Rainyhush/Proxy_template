@@ -117,7 +117,7 @@
     {
       "tag": "tun-in",
       "type": "tun",
-      "interface_name": "singbox.tun",
+      "interface_name": "sb.tun",
       "address": [
         "172.19.0.0/30",
         "fdfe:dcba:9876::0/126"
@@ -189,6 +189,22 @@
         "Other"
       ],
       "default": "Singapore"
+    },
+    {
+      "tag": "Gemini",
+      "type": "selector",
+      "outbounds": [
+        "HongKong",
+        "Japan",
+        "Singapore",
+        "Taiwan",
+        "Korea",
+        "America",
+        "UnitedKingdom",
+        "ChinaR",
+        "Other"
+      ],
+      "default": "Japan"
     },
     {
       "tag": "GitHub",
@@ -399,6 +415,11 @@
         "outbound": "OpenAI"
       },
       {
+        "rule_set": "geosite-gemini",
+        "action": "route",
+        "outbound": "Gemini"
+      },
+      {
         "rule_set": "geosite-spotify",
         "action": "route",
         "outbound": "Spotify"
@@ -480,6 +501,14 @@
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs",
+        "download_detour": "Proxy",
+        "update_interval": "1d"
+      },
+      {
+        "tag": "geosite-gemini",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs",
         "download_detour": "Proxy",
         "update_interval": "1d"
       },
