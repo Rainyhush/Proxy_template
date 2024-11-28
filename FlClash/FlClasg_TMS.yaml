@@ -104,55 +104,55 @@ proxy-groups:
 
 # 地区策略组
   - name: 香港策略组
-    type: select
+    <<: *u
     icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png'
     include-all: true
     filter: "(?i)(港|hk|HK|HongKong)"
 
   - name: 日本策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
     include-all: true
     filter: "(?i)(日|jp|JP|Japan)"
     
   - name: 新加坡策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
     include-all: true
     filter: "(?i)(新|sg|SG|singapore)"
 
   - name: 台湾策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
     include-all: true
     filter: "(?i)(台|tw|TW|Taiwan)"
 
   - name: 韩国策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
     include-all: true
     filter: "(?i)(韩|KR|Korea)"
 
   - name: 美国策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
     include-all: true
     filter: "(?i)(美|USA|America|United States)"
 
   - name: 英国策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
     include-all: true
     filter: "(?i)(英|UK|United Kingdom)"
 
   - name: 国内策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
     filter: "(?i)(徐|广|浙|镇|武|济)"
 
   - name: 其它策略组
-    type: select
+    <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
     filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|广|浙|镇|武|济|dns-out)).*"
@@ -201,7 +201,7 @@ rule-anchor:
 rule-providers:
   Advertising_Domain:
     <<: *domain
-    url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/Advertising/Advertising_Domain.yaml"
+    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
   ChinaMax_Domain:
     <<: *domain
     url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml"
