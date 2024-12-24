@@ -298,7 +298,8 @@
         "America",
         "UnitedKingdom",
         "ChinaR",
-        "Other"
+        "Other",
+        "DIRECT"
       ],
       "default": "ChinaR"
     },
@@ -361,7 +362,9 @@
     {
       "tag": "ChinaR",
       "type": "urltest",
-      "outbounds": [],
+      "outbounds": [
+        "DIRECT"
+      ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m",
       "tolerance": 30
@@ -376,7 +379,7 @@
     },
     {
       "type": "direct",
-      "tag": "direct"
+      "tag": "DIRECT"
     }
   ],
   "route": {
@@ -445,7 +448,10 @@
         "outbound": "Google"
       },
       {
-        "rule_set": ["geosite-telegram", "geoip-telegram"],
+        "rule_set": [
+          "geosite-telegram",
+          "geoip-telegram"
+        ],
         "action": "route",
         "outbound": "Telegram"
       },

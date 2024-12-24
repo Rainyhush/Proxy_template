@@ -10,7 +10,7 @@ let proxies = await produceArtifact({
   type: 'subscription', // /^1$|col/i.test(type) ? 'collection' : 'subscription',
   platform: 'sing-box',
   produceType: 'internal',
-})
+})direct
 config.outbounds.push(...proxies)
 
 config.outbounds.map(i => {
