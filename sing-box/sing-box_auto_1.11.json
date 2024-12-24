@@ -400,7 +400,7 @@
       {
         "ip_is_private": true,
         "action": "route",
-        "outbound": "China"
+        "outbound": "direct"
       },
       {
         "clash_mode": "direct",
