@@ -85,7 +85,7 @@ proxy-providers:
       url: "https://www.gstatic.com/generate_204"
 
 u: &u {type: url-test, interval: 600, tolerance: 50, lazy: true, url: 'https://www.gstatic.com/generate_204'}
-pr: &pr {type: select, proxies: [香港策略组, 日本策略组, 新加坡策略组, 台湾策略组, 韩国策略组, 美国策略组, 英国策略组, 国内策略组, 其它策略组]}
+pr: &pr {type: select, proxies: [香港策略组, 日本策略组, 新加坡策略组, 台湾策略组, 韩国策略组, 美国策略组, 英国策略组, 国内策略组, 其它策略组, direct]}
 
 proxies:
   - name: "dns-out"
@@ -153,7 +153,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
-    filter: "(?i)(徐|广|浙|镇|武|济|direct)"
+    filter: "(?i)(徐|广|浙|镇|武|济)"
 
   - name: 其它策略组
     <<: *u
