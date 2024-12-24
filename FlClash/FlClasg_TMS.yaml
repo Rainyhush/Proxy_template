@@ -90,7 +90,7 @@ pr: &pr {type: select, proxies: [香港策略组, 日本策略组, 新加坡策�
 proxies:
   - name: "dns-out"
     type: dns
-  - name: "DIRECT"
+  - name: "direct"
     type: direct
     udp: true
 # 策略组
@@ -153,7 +153,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
     include-all: true
-    filter: "(?i)(徐|广|浙|镇|武|济|DIRECT)"
+    filter: "(?i)(徐|广|浙|镇|武|济|direct)"
 
   - name: 其它策略组
     <<: *u
