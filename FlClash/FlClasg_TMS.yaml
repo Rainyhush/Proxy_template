@@ -93,7 +93,7 @@ proxies:
   - name: "direct"
     type: direct
     udp: true
-# 策略组
+
 proxy-groups:
   - {name: Proxy, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Proxy.png"}
   - {name: Google, <<: *pr, icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png"}
