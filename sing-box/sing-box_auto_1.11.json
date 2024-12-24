@@ -299,7 +299,7 @@
         "UnitedKingdom",
         "ChinaR",
         "Other",
-        "DIRECT"
+        "direct"
       ],
       "default": "ChinaR"
     },
@@ -363,7 +363,7 @@
       "tag": "ChinaR",
       "type": "urltest",
       "outbounds": [
-        "DIRECT"
+        "direct"
       ],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m",
@@ -379,7 +379,7 @@
     },
     {
       "type": "direct",
-      "tag": "DIRECT"
+      "tag": "direct"
     }
   ],
   "route": {
