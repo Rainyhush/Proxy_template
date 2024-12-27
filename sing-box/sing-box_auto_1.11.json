@@ -283,8 +283,7 @@
         "America",
         "UnitedKingdom",
         "ChinaR",
-        "Other",
-        "direct"
+        "Other"
       ],
       "default": "ChinaR"
     },
