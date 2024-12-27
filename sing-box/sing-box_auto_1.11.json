@@ -50,12 +50,6 @@
     ],
     "rules": [
       {
-        "rule_set": "Advertising",
-        "action": "reject",
-        "method": "default",
-        "no_drop": false
-      },
-      {
         "outbound": "any",
         "action": "route",
         "server": "local"
@@ -71,10 +65,7 @@
         "server": "remote"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": ["A", "AAAA"],
         "rule_set": "geo-cn",
         "action": "route",
         "server": "fakeip"
@@ -101,10 +92,7 @@
         "client_subnet": "114.114.114.114/24"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": ["A", "AAAA"],
         "action": "route",
         "server": "fakeip"
       }
@@ -118,10 +106,7 @@
       "tag": "tun-in",
       "type": "tun",
       "interface_name": "sb.tun",
-      "address": [
-        "172.19.0.0/30",
-        "fdfe:dcba:9876::0/126"
-      ],
+      "address": ["172.19.0.0/30", "fdfe:dcba:9876::0/126"],
       "stack": "mixed",
       "mtu": 9000,
       "auto_route": true,
@@ -362,9 +347,7 @@
     {
       "tag": "ChinaR",
       "type": "urltest",
-      "outbounds": [
-        "direct"
-      ],
+      "outbounds": ["direct"],
       "url": "http://cp.cloudflare.com/",
       "interval": "10m",
       "tolerance": 30
@@ -386,12 +369,6 @@
     "rules": [
       {
         "action": "sniff"
-      },
-      {
-        "rule_set": "Advertising",
-        "action": "reject",
-        "method": "default",
-        "no_drop": false
       },
       {
         "protocol": "dns",
@@ -448,10 +425,7 @@
         "outbound": "Google"
       },
       {
-        "rule_set": [
-          "geosite-telegram",
-          "geoip-telegram"
-        ],
+        "rule_set": ["geosite-telegram", "geoip-telegram"],
         "action": "route",
         "outbound": "Telegram"
       },

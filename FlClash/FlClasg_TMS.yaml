@@ -53,10 +53,10 @@ dns:
     - 120.53.53.53
     - 223.5.5.5
   nameserver:
-    - "tls://1.1.1.1#Proxy"
-    - "tls://8.8.8.8#Proxy"
-    - "https://cloudflare-dns.com/dns-query#Proxy"
-    - "https://dns.google/dns-query#Proxy"
+    - tls://1.1.1.1
+    - tls://8.8.8.8
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.google/dns-query
   nameserver-policy:
     "geosite:cn,private":
       - https://doh.pub/dns-query
@@ -163,9 +163,9 @@ proxy-groups:
 
 # 规则
 rules:
-  - RULE-SET,Advertising_Domain,REJECT-DROP
+#  - RULE-SET,Advertising_Domain,REJECT-DROP
   - DST-PORT,53,dns-out
-  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
+  #  - AND,(AND,(DST-PORT,443),(NETWORK,UDP)),(NOT,((GEOSITE,cn))),REJECT-DROP # 禁用quic(不包括国内)
   - RULE-SET,github,GitHub
   - RULE-SET,openai,OpenAI
   - RULE-SET,youtube,YouTube
@@ -209,9 +209,9 @@ rule-anchor:
     format: mrs
 # 规则集
 rule-providers:
-  Advertising_Domain:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
+  #  Advertising_Domain:
+#    <<: *domain
+    #    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.yaml"
   ChinaMax_Domain:
     <<: *domain
     url: "https://github.com/blackmatrix7/ios_rule_script/raw/refs/heads/master/rule/Clash/ChinaMax/ChinaMax_Domain.yaml"
