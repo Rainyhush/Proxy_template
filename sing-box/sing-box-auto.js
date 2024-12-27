@@ -2,9 +2,6 @@ const { type, name } = $arguments;
 const compatible_outbound = {
   tag: "COMPATIBLE",
   type: "direct",
-  
-  
-  
 };
 let compatible;
 let config = JSON.parse($files[0]);
@@ -22,7 +19,7 @@ config.outbounds.map((i) => {
       ...proxies
         .filter(
           (p) =>
-            !/镇江|徐州|武汉|济南|香港|HongKong|HK|台湾|Taiwan|TW|日本|Japan|JP|新加坡|Singapore|SG|美国|America|US|韩国|Korea|KR|英国|United Kingdom|UK/i.test(
+            !/镇江|徐州|武汉|济南|香港|direct|HongKong|HK|台湾|Taiwan|TW|日本|Japan|JP|新加坡|Singapore|SG|美国|America|US|韩国|Korea|KR|英国|United Kingdom|UK/i.test(
               p.tag,
             ),
         )
