@@ -72,7 +72,7 @@ config.outbounds.map((i) => {
   if (["ChinaR"].includes(i.tag)) {
     i.outbounds.push(
       ...proxies
-        .filter((p) => /徐州|武汉|镇江|济南|direct/i.test(p.tag))
+        .filter((p) => /徐州|武汉|镇江|济南/i.test(p.tag))
         .map((p) => p.tag),
     );
   }
