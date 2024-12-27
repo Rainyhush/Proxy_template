@@ -4,7 +4,7 @@
     "level": "info",
     "timestamp": true
   },
-  
+
   "dns": {
     "fakeip": {
       "enabled": true,
@@ -32,11 +32,6 @@
       }
     ],
 
-
-
-
-
-    
     "rules": [
       {
         "rule_set": "geosite-category-ads-all",
@@ -56,10 +51,7 @@
         "server": "Remote"
       },
       {
-        "query_type": [
-          "A",
-          "AAAA"
-        ],
+        "query_type": ["A", "AAAA"],
         "server": "fakeip"
       },
       {
@@ -75,7 +67,7 @@
     "strategy": "prefer_ipv4",
     "final": "Remote"
   },
-  
+
   "inbounds": [
     {
       "tag": "tun",
@@ -103,7 +95,7 @@
       "sniff": true
     }
   ],
-  
+
   "outbounds": [
     {
       "tag": "Proxy",
@@ -297,15 +289,11 @@
       "tag": "中国",
       "type": "selector",
       "outbounds": []
-    }, 
+    },
     {
       "tag": "Built-In",
       "type": "selector",
-      "outbounds": [
-        "block",
-        "dns-out",
-        "direct"
-        ]
+      "outbounds": ["block", "dns-out", "direct"]
     },
     {
       "tag": "其它地区",
@@ -333,7 +321,7 @@
       "tag": "direct"
     }
   ],
-  
+
   "route": {
     "rules": [
       {
@@ -512,7 +500,7 @@
       }
     ]
   },
-  
+
   "experimental": {
     "clash_api": {
       "external_controller": "127.0.0.1:9090",
@@ -529,4 +517,3 @@
     }
   }
 }
-
