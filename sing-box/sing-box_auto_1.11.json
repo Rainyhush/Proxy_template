@@ -57,7 +57,7 @@
       {
         "clash_mode": "direct",
         "action": "route",
-        "server": "direct"
+        "server": "local"
       },
       {
         "clash_mode": "global",
@@ -66,12 +66,12 @@
       },
       {
         "query_type": ["A", "AAAA"],
-        "rule_set": "geo-cn",
+        "rule_set": "geosite-cn",
         "action": "route",
         "server": "fakeip"
       },
       {
-        "rule_set": "geo-cn",
+        "rule_set": "geosite-cn",
         "action": "route",
         "server": "local"
       },
@@ -84,7 +84,7 @@
             "invert": true
           },
           {
-            "rule_set": "geo-cn"
+            "rule_set": "geosite-cn"
           }
         ],
         "action": "route",
@@ -131,165 +131,175 @@
       "tag": "Proxy",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "HongKong"
+      "default": "香港"
     },
     {
       "tag": "Google",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Japan"
+      "default": "日本"
     },
     {
       "tag": "OpenAI",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Singapore"
+      "default": "新加坡"
     },
     {
       "tag": "Gemini",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Japan"
+      "default": "日本"
     },
     {
       "tag": "GitHub",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "HongKong"
+      "default": "香港"
     },
     {
       "tag": "Microsoft",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Singapore"
+      "default": "新加坡"
     },
     {
       "tag": "YouTube",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Japan"
+      "default": "日本"
     },
     {
       "tag": "Spotify",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "HongKong"
+      "default": "香港"
     },
     {
       "tag": "Telegram",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other"
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它"
       ],
-      "default": "Singapore"
+      "default": "新加坡"
     },
     {
       "tag": "China",
       "type": "selector",
       "outbounds": [
-        "HongKong",
-        "Japan",
-        "Singapore",
-        "Taiwan",
-        "Korea",
-        "America",
-        "UnitedKingdom",
-        "ChinaR",
-        "Other",
+        "香港",
+        "日本",
+        "新加坡",
+        "台湾",
+        "韩国",
+        "美国",
+        "英国",
+        "德国",
+        "中国",
+        "其它",
         "direct"
       ],
-      "default": "ChinaR"
+      "default": "direct"
     },
     {
-      "tag": "HongKong",
+      "tag": "香港",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -297,7 +307,7 @@
       "tolerance": 30
     },
     {
-      "tag": "Japan",
+      "tag": "日本",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -305,7 +315,7 @@
       "tolerance": 30
     },
     {
-      "tag": "Singapore",
+      "tag": "新加坡",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -313,7 +323,7 @@
       "tolerance": 30
     },
     {
-      "tag": "Taiwan",
+      "tag": "台湾",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -321,7 +331,7 @@
       "tolerance": 30
     },
     {
-      "tag": "Korea",
+      "tag": "韩国",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -329,7 +339,7 @@
       "tolerance": 30
     },
     {
-      "tag": "America",
+      "tag": "美国",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -337,7 +347,7 @@
       "tolerance": 30
     },
     {
-      "tag": "UnitedKingdom",
+      "tag": "英国",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -345,7 +355,7 @@
       "tolerance": 30
     },
     {
-      "tag": "ChinaR",
+      "tag": "德国",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -353,7 +363,15 @@
       "tolerance": 30
     },
     {
-      "tag": "Other",
+      "tag": "中国",
+      "type": "urltest",
+      "outbounds": [],
+      "url": "http://cp.cloudflare.com/",
+      "interval": "10m",
+      "tolerance": 30
+    },
+    {
+      "tag": "其它",
       "type": "urltest",
       "outbounds": [],
       "url": "http://cp.cloudflare.com/",
@@ -376,67 +394,54 @@
       },
       {
         "ip_is_private": true,
-        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "direct",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "global",
-        "action": "route",
         "outbound": "Proxy"
       },
       {
         "rule_set": "geosite-openai",
-        "action": "route",
         "outbound": "OpenAI"
       },
       {
         "rule_set": "geosite-gemini",
-        "action": "route",
         "outbound": "Gemini"
       },
       {
         "rule_set": "geosite-spotify",
-        "action": "route",
         "outbound": "Spotify"
       },
       {
         "rule_set": "geosite-github",
-        "action": "route",
         "outbound": "GitHub"
       },
       {
         "rule_set": "geosite-microsoft",
-        "action": "route",
         "outbound": "Microsoft"
       },
       {
         "rule_set": "geosite-youtube",
-        "action": "route",
         "outbound": "YouTube"
       },
       {
         "rule_set": "geosite-google",
-        "action": "route",
         "outbound": "Google"
       },
       {
         "rule_set": ["geosite-telegram", "geoip-telegram"],
-        "action": "route",
         "outbound": "Telegram"
       },
       {
-        "rule_set": "geo-cn",
-        "action": "route",
+        "rule_set": "geosite-cn",
         "outbound": "China"
       },
       {
         "rule_set": "geosite-geolocation-!cn",
-        "action": "route",
         "outbound": "Proxy"
       }
     ],
@@ -525,7 +530,7 @@
         "update_interval": "1d"
       },
       {
-        "tag": "geo-cn",
+        "tag": "geosite-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/ChinaMax/ChinaMax.srs",
