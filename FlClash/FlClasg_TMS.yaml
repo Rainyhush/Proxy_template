@@ -75,10 +75,10 @@ tun:
 
 proxy-providers:
   provider1:
-    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/RHKTMS?target=Clash&includeUnsupportedProxy=true"
+    url: "https://rainyhush-rainyhush.hf.space/RAINYHUSH/download/collection/%E6%B5%8B%E8%AF%95?target=ClashMeta"
     type: http
     interval: 86400
-    proxy: Proxy
+    proxy: direct
     health-check: 
       enable: true
       interval: 1800
@@ -147,7 +147,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png"
     include-all: true
-    filter: "(?i)(英|UK|United Kingdom)"
+    filter: "(?i)(英|UK|GB|United Kingdom)"
 
   - name: 国内策略组
     <<: *u
@@ -159,7 +159,7 @@ proxy-groups:
     <<: *u
     icon: "https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Global.png"
     include-all: true
-    filter: "(?i)^(?!.*(?:港|台|日|新|韩|美|英|徐|广|浙|镇|武|济|dns-out)).*"
+    filter: "(?i)^(?!.*(?:港|HK|台|TW|日|JP|新|SG|韩|KR|美|US|英|GB|UK|徐|广|浙|镇|武|济|dns-out)).*"
 
 # 规则
 rules:
